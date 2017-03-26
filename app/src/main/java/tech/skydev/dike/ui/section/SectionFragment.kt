@@ -1,17 +1,16 @@
 package tech.skydev.dike.ui.section
 
-import android.support.v4.app.Fragment
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import tech.skydev.dike.R
-import tech.skydev.dike.data.Section
+import tech.skydev.dike.data.model.Titre
 import tech.skydev.dike.util.ConversionUtil
 import tech.skydev.dike.widget.GridSpacingItemDecoration
-import kotlin.collections.ArrayList
 
 /**
  * A placeholder fragment containing a simple view.
@@ -64,8 +63,8 @@ class SectionFragment : Fragment(), SectionContract.View {
         this.mPresenter = presenter;
     }
 
-    override fun showSections(sections: ArrayList<Section>) {
-        mAdapter?.replaceItems(sections)
+    override fun showSections(titres: ArrayList<Titre>) {
+        mAdapter?.replaceItems(titres)
     }
 
     companion object {

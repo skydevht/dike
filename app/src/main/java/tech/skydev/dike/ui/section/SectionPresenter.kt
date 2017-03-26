@@ -2,7 +2,7 @@ package tech.skydev.dike.ui.section
 
 import tech.skydev.dike.data.ConstitutionRepository
 import tech.skydev.dike.data.DataCallback
-import tech.skydev.dike.data.Section
+import tech.skydev.dike.data.model.Titre
 
 /**
  * Created by Hash Skyd on 3/26/2017.
@@ -19,9 +19,9 @@ class SectionPresenter(val constitutionRepository: ConstitutionRepository,
 
 
     override fun loadSections() {
-        constitutionRepository.allSections(object : DataCallback<ArrayList<Section>> {
-            override fun onSuccess(result: ArrayList<Section>?) {
-                sectionView.showSections(result ?: ArrayList<Section>(0))
+        constitutionRepository.allTitres(object : DataCallback<ArrayList<Titre>> {
+            override fun onSuccess(result: ArrayList<Titre>?) {
+                sectionView.showSections(result ?: ArrayList<Titre>(0))
             }
 
             override fun onError(t: Throwable) {

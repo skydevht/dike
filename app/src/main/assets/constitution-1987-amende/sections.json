@@ -1,49 +1,66 @@
-[{
-  "id": "0",
-  "name": "Préambule"
-}, {
-  "id": "I",
-  "name": "DE LA RÉPUBLIQUE D’HAÏTI : SON EMBLÈME – SES SYMBOLES"
-}, {
-  "id": "II",
-  "name": "DE LA NATIONALITÉ HAÏTIENNE"
-}, {
-  "id": "III",
-  "name": "DU CITOYEN, DES DROITS et DEVOIRS FONDAMENTAUX"
-}, {
-  "id": "IV",
-  "name": "DES ÉTRANGERS"
-}, {
-  "id": "V",
-  "name": "DE LA SOUVERAINETÉ NATIONALE"
-}, {
-  "id": "VI",
-  "name": "DES INSTITUTIONS INDÉPENDANTES"
-}, {
-  "id": "VII",
-  "name": "DES FINANCES PUBLIQUES"
-}, {
-  "id": "VIII",
-  "name": "DE LA FONCTION PUBLIQUE"
-}, {
-  "id": "IX",
-  "name": "DE L’ECONOMIE, DE L’AGRICULTURE et DE L’ENVIRONNEMENT"
-}, {
-  "id": "X",
-  "name": "DE LA FAMILLE"
-}, {
-  "id": "XI",
-  "name": "DE LA FORCE PUBLIQUE"
-}, {
-  "id": "XII",
-  "name": "DISPOSITIONS GÉNÉRALES"
-}, {
-  "id": "XIII",
-  "name": "AMENDEMENTS A LA CONSTITUTION"
-}, {
-  "id": "XIV",
-  "name": "DES DISPOSITIONS TRANSITOIRES"
-}, {
-  "id": "XV",
-  "name": "DISPOSITIONS FINALES"
-}]
+[
+  {
+    "id": "0",
+    "name": "Préambule"
+  },
+  {
+    "id": "I",
+    "name": "DE LA RÉPUBLIQUE D’HAÏTI : SON EMBLÈME – SES SYMBOLES"
+  },
+  {
+    "id": "II",
+    "name": "DE LA NATIONALITÉ HAÏTIENNE"
+  },
+  {
+    "id": "III",
+    "name": "DU CITOYEN, DES DROITS et DEVOIRS FONDAMENTAUX"
+  },
+  {
+    "id": "IV",
+    "name": "DES ÉTRANGERS"
+  },
+  {
+    "id": "V",
+    "name": "DE LA SOUVERAINETÉ NATIONALE"
+  },
+  {
+    "id": "VI",
+    "name": "DES INSTITUTIONS INDÉPENDANTES"
+  },
+  {
+    "id": "VII",
+    "name": "DES FINANCES PUBLIQUES"
+  },
+  {
+    "id": "VIII",
+    "name": "DE LA FONCTION PUBLIQUE"
+  },
+  {
+    "id": "IX",
+    "name": "DE L’ECONOMIE, DE L’AGRICULTURE et DE L’ENVIRONNEMENT"
+  },
+  {
+    "id": "X",
+    "name": "DE LA FAMILLE"
+  },
+  {
+    "id": "XI",
+    "name": "DE LA FORCE PUBLIQUE"
+  },
+  {
+    "id": "XII",
+    "name": "DISPOSITIONS GÉNÉRALES"
+  },
+  {
+    "id": "XIII",
+    "name": "AMENDEMENTS A LA CONSTITUTION"
+  },
+  {
+    "id": "XIV",
+    "name": "DES DISPOSITIONS TRANSITOIRES"
+  },
+  {
+    "id": "XV",
+    "name": "DISPOSITIONS FINALES"
+  }
+]
