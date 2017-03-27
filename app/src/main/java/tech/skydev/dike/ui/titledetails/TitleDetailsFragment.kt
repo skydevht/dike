@@ -2,6 +2,7 @@ package tech.skydev.dike.ui.titledetails
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -63,6 +64,9 @@ class TitleDetailsFragment : Fragment(), TitleDetailsContract.View {
 
     override fun showTitle(titre: Titre) {
         mAdapter?.replaceItems(titre)
+        val bar = (activity as AppCompatActivity).supportActionBar
+        bar?.title = "Titre "+ titre.id
+        bar?.subtitle = titre.name
     }
 
     companion object {

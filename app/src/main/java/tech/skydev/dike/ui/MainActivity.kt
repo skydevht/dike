@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity(), Navigation {
         val titleDetailsFragment: TitleDetailsFragment = TitleDetailsFragment.newInstance()
         ActivityUtils.addFragmentToActivity(
                 supportFragmentManager, titleDetailsFragment, R.id.contentFrame, true)
-        val titleDetailsPresenter = TitleDetailsPresenter (
+        val titleDetailsPresenter = TitleDetailsPresenter(
                 Injection.provideConstitutionRepository(applicationContext), titleDetailsFragment, id)
 
     }
@@ -70,8 +70,10 @@ class MainActivity : AppCompatActivity(), Navigation {
         // as you specify a parent activity in AndroidManifest.xml.
         val id = item.itemId
 
-
-        if (id == R.id.action_settings) {
+        if (id == android.R.id.home) {
+            onBackPressed()
+        }
+        else if (id == R.id.action_settings) {
             return true
         }
 

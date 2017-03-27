@@ -10,7 +10,58 @@
           "id": null,
           "articles": [
             {
-              "order": 1,
+              "order": "1",
+              "text": "<p><strike>Haïti est une République, indivisible, souveraine, indépendante, coopératiste, libre, démocratique et sociale.</strike></p> <p>Haïti est une République, indivisible, souveraine, indépendante, libre, démocratique et solidaire</p>"
+            }, {
+              "order": "1.1",
+              "text": "<p><strike>Haïti est une République, indivisible, souveraine, indépendante, coopératiste, libre, démocratique et sociale.</strike></p> <p>Haïti est une République, indivisible, souveraine, indépendante, libre, démocratique et solidaire</p>"
+            }, {
+              "order": "2",
+              "text": "<p><strike>Haïti est une République, indivisible, souveraine, indépendante, coopératiste, libre, démocratique et sociale.</strike></p> <p>Haïti est une République, indivisible, souveraine, indépendante, libre, démocratique et solidaire</p>"
+            }, {
+              "order": "3",
+              "text": "<p><strike>Haïti est une République, indivisible, souveraine, indépendante, coopératiste, libre, démocratique et sociale.</strike></p> <p>Haïti est une République, indivisible, souveraine, indépendante, libre, démocratique et solidaire</p>"
+            }, {
+              "order": "4",
+              "text": "<p><strike>Haïti est une République, indivisible, souveraine, indépendante, coopératiste, libre, démocratique et sociale.</strike></p> <p>Haïti est une République, indivisible, souveraine, indépendante, libre, démocratique et solidaire</p>"
+            }, {
+              "order": "4.1",
+              "text": "<p><strike>Haïti est une République, indivisible, souveraine, indépendante, coopératiste, libre, démocratique et sociale.</strike></p> <p>Haïti est une République, indivisible, souveraine, indépendante, libre, démocratique et solidaire</p>"
+            }, {
+              "order": "5",
+              "text": "<p><strike>Haïti est une République, indivisible, souveraine, indépendante, coopératiste, libre, démocratique et sociale.</strike></p> <p>Haïti est une République, indivisible, souveraine, indépendante, libre, démocratique et solidaire</p>"
+            }, {
+              "order": "6",
+              "text": "<p><strike>Haïti est une République, indivisible, souveraine, indépendante, coopératiste, libre, démocratique et sociale.</strike></p> <p>Haïti est une République, indivisible, souveraine, indépendante, libre, démocratique et solidaire</p>"
+            }, {
+              "order": "7",
+              "text": "<p><strike>Haïti est une République, indivisible, souveraine, indépendante, coopératiste, libre, démocratique et sociale.</strike></p> <p>Haïti est une République, indivisible, souveraine, indépendante, libre, démocratique et solidaire</p>"
+            }, {
+              "order": "7.1",
+              "text": "<p><strike>Haïti est une République, indivisible, souveraine, indépendante, coopératiste, libre, démocratique et sociale.</strike></p> <p>Haïti est une République, indivisible, souveraine, indépendante, libre, démocratique et solidaire</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "II",
+      "name": "DU TERRITOIRE DE LA RÉPUBLIQUE D’HAÏTI",
+      "sections": [
+        {
+          "id": null,
+          "articles": [
+            {
+              "order": "8",
+              "text": "<p><strike>Haïti est une République, indivisible, souveraine, indépendante, coopératiste, libre, démocratique et sociale.</strike></p> <p>Haïti est une République, indivisible, souveraine, indépendante, libre, démocratique et solidaire</p>"
+            }, {
+              "order": "8.1",
+              "text": "<p><strike>Haïti est une République, indivisible, souveraine, indépendante, coopératiste, libre, démocratique et sociale.</strike></p> <p>Haïti est une République, indivisible, souveraine, indépendante, libre, démocratique et solidaire</p>"
+            }, {
+              "order": "9",
+              "text": "<p><strike>Haïti est une République, indivisible, souveraine, indépendante, coopératiste, libre, démocratique et sociale.</strike></p> <p>Haïti est une République, indivisible, souveraine, indépendante, libre, démocratique et solidaire</p>"
+            }, {
+              "order": "9.1",
               "text": "<p><strike>Haïti est une République, indivisible, souveraine, indépendante, coopératiste, libre, démocratique et sociale.</strike></p> <p>Haïti est une République, indivisible, souveraine, indépendante, libre, démocratique et solidaire</p>"
             }
           ]
