@@ -1,4 +1,4 @@
-package tech.skydev.dike.ui.section
+package tech.skydev.dike.ui.titledetails
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -15,29 +15,27 @@ import tech.skydev.dike.widget.GridSpacingItemDecoration
 /**
  * A placeholder fragment containing a simple view.
  */
-class SectionFragment : Fragment(), SectionContract.View {
+class TitleDetailsFragment : Fragment(), TitleDetailsContract.View {
 
 
-    var mAdapter: SectionAdapter? = null
+    var mAdapter: TitleDetailsAdapter? = TitleDetailsAdapter(null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mAdapter = SectionAdapter(ArrayList(0))
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val rootView = inflater!!.inflate(R.layout.fragment_main, container, false)
-        val recycler: RecyclerView = rootView?.findViewById(R.id.section_list) as RecyclerView
-        val layoutManager: GridLayoutManager = GridLayoutManager(context, 2)
+        val rootView = inflater!!.inflate(R.layout.fragment_titledetails, container, false)
+        val recycler: RecyclerView = rootView?.findViewById(R.id.titledetails_list) as RecyclerView
+        val layoutManager: GridLayoutManager = GridLayoutManager(context, 3)
         layoutManager.spanSizeLookup= object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
-                val size = if (position == 0) {
-                    2
-                } else {
-                    1
+                return when(mAdapter?.getItemViewType(position)) {
+                    mAdapter?.TITLE_VIEW_TYPE, mAdapter?.CHAPTER_VIEW_TYPE,
+                    mAdapter?.SECTION_VIEW_TYPE -> 3
+                    else -> 1
                 }
-                return size
             }
 
         }
@@ -56,20 +54,20 @@ class SectionFragment : Fragment(), SectionContract.View {
 
 
 
-    var mPresenter: SectionContract.Presenter? = null
+    var mPresenter: TitleDetailsContract.Presenter? = null
 
 
-    override fun setPresenter(presenter: SectionContract.Presenter) {
+    override fun setPresenter(presenter: TitleDetailsContract.Presenter) {
         this.mPresenter = presenter;
     }
 
-    override fun showSections(titres: ArrayList<Titre>) {
-        mAdapter?.replaceItems(titres)
+    override fun showTitle(titre: Titre) {
+        mAdapter?.replaceItems(titre)
     }
 
     companion object {
-        fun newInstance(): SectionFragment {
-            return SectionFragment()
+        fun newInstance(): TitleDetailsFragment {
+            return TitleDetailsFragment()
         }
     }
 }

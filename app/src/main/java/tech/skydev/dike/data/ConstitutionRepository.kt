@@ -1,14 +1,18 @@
 package tech.skydev.dike.data
 
 import android.content.Context
+import android.os.AsyncTask
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import tech.skydev.dike.config.Constant
 import tech.skydev.dike.data.model.Chapter
 import tech.skydev.dike.data.model.DikeJsonDeserialiser
 import tech.skydev.dike.data.model.Section
 import tech.skydev.dike.data.model.Titre
+import tech.skydev.dike.util.FileUtil
+import java.lang.reflect.Type
 
 /**
  * Created by Hash Skyd on 3/26/2017.
@@ -26,30 +30,48 @@ class ConstitutionRepository(var context: Context) {
     val sectionsFile: String = Constant.CONST_1987_A_DIR + "/sections.json"
 
     fun allTitres(callback: DataCallback<ArrayList<Titre>>) {
-        val task: ReadJsonFromAssetsTask<ArrayList<Titre>>  = object : ReadJsonFromAssetsTask<ArrayList<Titre>>(
-                context, gson, sectionsFile, callback, true
-        ) {
-            override fun getJsonType(): Class<ArrayList<Titre>> {
-                //Will not be called if the data is an array
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val task: AsyncTask<Void, Void, ArrayList<Titre>> = object : AsyncTask <Void, Void, ArrayList<Titre>>() {
+            override fun doInBackground(vararg params: Void?): ArrayList<Titre> {
+                var titres: ArrayList<Titre> = ArrayList(0)
+                try {
+                    val sectionGson: String = FileUtil.loadTextFileFromAssets(context, sectionsFile);
+                    val collectionType: Type = (object : TypeToken<ArrayList<Titre>>() {}).getType()
+                    titres = gson.fromJson(sectionGson, collectionType)
+
+                } catch(e: Exception) {
+                    callback.onError(e)
+                } finally {
+                    return titres
+                };
             }
 
+            override fun onPostExecute(result: ArrayList<Titre>?) {
+                callback.onSuccess(result);
+            }
         }
-        task.execute();
+
+        task.execute()
     }
-
     fun getTitre(id: String, callback: DataCallback<Titre>) {
-        val filename: String = Constant.CONST_1987_A_DIR+"/titres/titre_"+id+".json"
+        val filename: String = Constant.CONST_1987_A_DIR + "/titres/titre_" + id + ".json"
 
-        val task: ReadJsonFromAssetsTask<Titre>  = object : ReadJsonFromAssetsTask<Titre>(
-                context, gson, filename, callback, false
-        ) {
-            override fun getJsonType(): Class<Titre> {
-                return Titre::class.java
+        val task: AsyncTask<Void, Void, Titre?> = object : AsyncTask <Void, Void, Titre?>() {
+            override fun doInBackground(vararg params: Void?): Titre? {
+                try {
+                    val sectionGson: String = FileUtil.loadTextFileFromAssets(context, filename);
+                    val titre = gson.fromJson(sectionGson, Titre::class.java)
+                    return titre
+
+                } catch(e: Exception) {
+                    callback.onError(e)
+                }
+                return null;
             }
 
+            override fun onPostExecute(result: Titre?) {
+                callback.onSuccess(result);
+            }
         }
-        task.execute();
-
+        task.execute()
     }
 }

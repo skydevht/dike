@@ -22,7 +22,7 @@ constructor(val context: Context,
         try {
             val sectionGson: String = FileUtil.loadTextFileFromAssets(context, filename);
             if (collection) {
-                val collectionType: Type = (object : TypeToken<ArrayList<T>>() {}).getType()
+                val collectionType: Type = (object : TypeToken<T>() {}).getType()
                 model = gson.fromJson(sectionGson, collectionType)
             } else {
                 model = gson.fromJson(sectionGson, getJsonType())

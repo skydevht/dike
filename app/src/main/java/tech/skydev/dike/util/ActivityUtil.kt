@@ -14,11 +14,12 @@ object ActivityUtils {
 
      */
     fun addFragmentToActivity(fragmentManager: FragmentManager,
-                              fragment: Fragment, frameId: Int) {
+                              fragment: Fragment, frameId: Int, backstack: Boolean) {
         checkNotNull(fragmentManager)
         checkNotNull(fragment)
         val transaction = fragmentManager.beginTransaction()
-        transaction.add(frameId, fragment)
+        transaction.replace(frameId, fragment)
+        if (backstack) transaction.addToBackStack("main")
         transaction.commit()
     }
 

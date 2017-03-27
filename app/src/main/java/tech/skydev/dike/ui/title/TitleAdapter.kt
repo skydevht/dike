@@ -1,4 +1,4 @@
-package tech.skydev.dike.ui.section
+package tech.skydev.dike.ui.title
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -7,13 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import tech.skydev.dike.R
 import tech.skydev.dike.data.model.Titre
-import java.util.*
 
 /**
  * Created by Hash Skyd on 3/26/2017.
  */
 
-class SectionAdapter(internal var models: ArrayList<Titre>) : RecyclerView.Adapter<SectionAdapter.ViewHolder>() {
+abstract class TitleAdapter(internal var models: ArrayList<Titre>) : RecyclerView.Adapter<TitleAdapter.ViewHolder>() {
 
     private val PREAMBULE_VIEW_TYPE = 0
     private val NORMAL_VIEW_TYPE = 1
@@ -43,10 +42,15 @@ class SectionAdapter(internal var models: ArrayList<Titre>) : RecyclerView.Adapt
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindToModel(getItem(position), position)
+        if (position == 1) {
+            holder.itemView.setOnClickListener { onCellClick(getItem(position), position) }
+        }
     }
 
+    abstract fun onCellClick(model: Titre, pos: Int)
+
     private fun getItem(position: Int): Titre {
-        return models[position]
+        return models.get(position)
     }
 
     override fun getItemCount(): Int {

@@ -1,23 +1,23 @@
 package tech.skydev.dike.ui
 
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.Snackbar
 import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.view.View
 import android.view.Menu
 import android.view.MenuItem
 import tech.skydev.dike.Injection
 import tech.skydev.dike.R
-import tech.skydev.dike.ui.section.SectionFragment
-import tech.skydev.dike.ui.section.SectionPresenter
+import tech.skydev.dike.ui.title.TitleFragment
+import tech.skydev.dike.ui.title.TitlesPresenter
+import tech.skydev.dike.ui.titledetails.TitleDetailsFragment
+import tech.skydev.dike.ui.titledetails.TitleDetailsPresenter
 import tech.skydev.dike.util.ActivityUtils
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Navigation {
 
-    private var mSectionPresenter: SectionPresenter? = null
+
+    private var mTitlesPresenter: TitlesPresenter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,18 +28,34 @@ class MainActivity : AppCompatActivity() {
         val bar: ActionBar = supportActionBar!!
         bar.title = "Constitution Haitienne"
         bar.subtitle = "1987 - Amendée"
+        supportFragmentManager.addOnBackStackChangedListener {
+            if (supportFragmentManager.backStackEntryCount > 0) {
+                bar.setDisplayHomeAsUpEnabled(true);
+            } else {
+                bar.setDisplayHomeAsUpEnabled(false)
+            }
+        }
 
-        var sectionFragment: SectionFragment? = supportFragmentManager.findFragmentById(R.id.contentFrame) as? SectionFragment
-        if (sectionFragment == null) {
+        var titleFragment: TitleFragment? = supportFragmentManager.findFragmentById(R.id.contentFrame) as? TitleFragment
+        if (titleFragment == null) {
             // Create the fragment
-            sectionFragment = SectionFragment.newInstance()
+            titleFragment = TitleFragment.newInstance()
             ActivityUtils.addFragmentToActivity(
-                    supportFragmentManager, sectionFragment!!, R.id.contentFrame)
+                    supportFragmentManager, titleFragment, R.id.contentFrame, false)
         }
 
         // Create the presenter
-        mSectionPresenter = SectionPresenter(
-                Injection.provideConstitutionRepository(applicationContext), sectionFragment)
+        mTitlesPresenter = TitlesPresenter(
+                Injection.provideConstitutionRepository(applicationContext), titleFragment)
+    }
+
+    override fun showTitleScreen(id: String) {
+        val titleDetailsFragment: TitleDetailsFragment = TitleDetailsFragment.newInstance()
+        ActivityUtils.addFragmentToActivity(
+                supportFragmentManager, titleDetailsFragment, R.id.contentFrame, true)
+        val titleDetailsPresenter = TitleDetailsPresenter (
+                Injection.provideConstitutionRepository(applicationContext), titleDetailsFragment, id)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
