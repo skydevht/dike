@@ -10,8 +10,11 @@ import tech.skydev.dike.data.model.Titre
 class TitleDetailsPresenter(val constitutionRepository: ConstitutionRepository,
                             val titleDetailsView: TitleDetailsContract.View,
                             var currentTitleId: String): TitleDetailsContract.Presenter {
+
+
     override fun start() {
         loadTitle()
+        loadTitles()
     }
 
     init {
@@ -23,6 +26,18 @@ class TitleDetailsPresenter(val constitutionRepository: ConstitutionRepository,
         constitutionRepository.getTitre(currentTitleId, object : DataCallback<Titre> {
             override fun onSuccess(result: Titre?) {
                 titleDetailsView.showTitle(result!!)
+            }
+
+            override fun onError(t: Throwable) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+        })
+    }
+
+    override fun loadTitles() {
+        constitutionRepository.allTitres(object : DataCallback<ArrayList<Titre>> {
+            override fun onSuccess(result: ArrayList<Titre>?) {
+                titleDetailsView.showTitles(result ?: ArrayList<Titre>(0))
             }
 
             override fun onError(t: Throwable) {

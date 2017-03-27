@@ -1,4 +1,4 @@
-package tech.skydev.dike.ui.titledetails
+package tech.skydev.dike.ui.titledetails.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

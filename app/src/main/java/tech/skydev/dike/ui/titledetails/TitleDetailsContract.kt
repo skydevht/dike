@@ -10,8 +10,10 @@ import tech.skydev.dike.data.model.Titre
 interface TitleDetailsContract {
     interface View: BaseView<Presenter> {
         fun showTitle(titre: Titre)
+        fun showTitles(titres: ArrayList<Titre>)
     }
     interface Presenter: BasePresenter {
         fun loadTitle()
+        fun loadTitles()
     }
 }

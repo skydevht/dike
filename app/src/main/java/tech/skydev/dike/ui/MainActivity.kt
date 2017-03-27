@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity(), Navigation {
     }
 
     override fun showTitleScreen(id: String) {
-        val titleDetailsFragment: TitleDetailsFragment = TitleDetailsFragment.newInstance()
+        val titleDetailsFragment: TitleDetailsFragment = TitleDetailsFragment.newInstance(id)
         ActivityUtils.addFragmentToActivity(
                 supportFragmentManager, titleDetailsFragment, R.id.contentFrame, true)
         val titleDetailsPresenter = TitleDetailsPresenter(
