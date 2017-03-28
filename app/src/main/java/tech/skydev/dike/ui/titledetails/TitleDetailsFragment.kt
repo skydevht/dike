@@ -1,7 +1,7 @@
 package tech.skydev.dike.ui.titledetails
 
+import android.content.res.Configuration
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
@@ -10,7 +10,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import tech.skydev.dike.R
+import tech.skydev.dike.base.BaseFragment
+import tech.skydev.dike.data.model.Article
 import tech.skydev.dike.data.model.Titre
+import tech.skydev.dike.ui.MainActivity
+import tech.skydev.dike.ui.Navigation
 import tech.skydev.dike.ui.titledetails.adapter.TitleDetailsAdapter
 import tech.skydev.dike.ui.titledetails.adapter.TitleSideAdapter
 import tech.skydev.dike.util.ConversionUtil
@@ -19,8 +23,7 @@ import tech.skydev.dike.widget.GridSpacingItemDecoration
 /**
  * A placeholder fragment containing a simple view.
  */
-class TitleDetailsFragment : Fragment(), TitleDetailsContract.View {
-
+class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
 
 
     var mAdapter: TitleDetailsAdapter = TitleDetailsAdapter(null)
@@ -34,7 +37,14 @@ class TitleDetailsFragment : Fragment(), TitleDetailsContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mTitleId = arguments.getString("titleId")!!
+        mTitleId = if (savedInstanceState == null) arguments.getString(TITLE_ID_KEY)!! else savedInstanceState.getString(TITLE_ID_KEY)
+
+        mAdapter.mListener = object : TitleDetailsAdapter.ClickListener() {
+            override fun onArticleClicked(article: Article) {
+                val navigation: Navigation = activity as MainActivity
+                navigation.showArticle(mTitleId, article.id)
+            }
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -49,12 +59,14 @@ class TitleDetailsFragment : Fragment(), TitleDetailsContract.View {
 
     private fun initMainRecycler(rootView: View?) {
         val recycler: RecyclerView = rootView?.findViewById(R.id.titledetails_list) as RecyclerView
-        val layoutManager: GridLayoutManager = GridLayoutManager(context, 3)
+        val colSpan = if (screenOrientation == Configuration.ORIENTATION_PORTRAIT) 3 else 4
+        val layoutManager: GridLayoutManager = GridLayoutManager(context, colSpan)
         layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
+
                 return when (mAdapter.getItemViewType(position)) {
                     mAdapter.TITLE_VIEW_TYPE, mAdapter.CHAPTER_VIEW_TYPE,
-                    mAdapter.SECTION_VIEW_TYPE -> 3
+                    mAdapter.SECTION_VIEW_TYPE -> colSpan
                     else -> 1
                 }
             }
@@ -69,9 +81,9 @@ class TitleDetailsFragment : Fragment(), TitleDetailsContract.View {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mPresenter!!.start()
+        mPresenter!!.loadTitle(mTitleId)
+        mPresenter!!.loadTitles()
     }
-
 
 
     var mPresenter: TitleDetailsContract.Presenter? = null
@@ -84,18 +96,26 @@ class TitleDetailsFragment : Fragment(), TitleDetailsContract.View {
     override fun showTitle(titre: Titre) {
         mAdapter.replaceItems(titre)
         val bar = (activity as AppCompatActivity).supportActionBar
-        bar?.title = "Titre "+ titre.id
+        bar?.title = "Titre " + titre.id
         bar?.subtitle = titre.name
     }
 
-    lateinit var  mTitleId: String
+    lateinit var mTitleId: String
 
     override fun showTitles(titres: ArrayList<Titre>) {
         mSideAdapter.replaceItems(titres)
         mSideAdapter.selectedId = mTitleId
     }
 
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        outState?.putString(TITLE_ID_KEY, mTitleId)
+    }
+
     companion object {
+        val TAG: String = "titledetails-fragment"
+        val TITLE_ID_KEY: String = "titleId"
+
         fun newInstance(id: String): TitleDetailsFragment {
             val args: Bundle = Bundle()
             args.putString("titleId", id)

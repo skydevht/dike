@@ -8,12 +8,10 @@ import tech.skydev.dike.data.model.Titre
  * Created by Hash Skyd on 3/26/2017.
  */
 class TitleDetailsPresenter(val constitutionRepository: ConstitutionRepository,
-                            val titleDetailsView: TitleDetailsContract.View,
-                            var currentTitleId: String): TitleDetailsContract.Presenter {
+                            val titleDetailsView: TitleDetailsContract.View): TitleDetailsContract.Presenter {
 
 
     override fun start() {
-        loadTitle()
         loadTitles()
     }
 
@@ -22,8 +20,8 @@ class TitleDetailsPresenter(val constitutionRepository: ConstitutionRepository,
     }
 
 
-    override fun loadTitle() {
-        constitutionRepository.getTitre(currentTitleId, object : DataCallback<Titre> {
+    override fun loadTitle(titleId: String) {
+        constitutionRepository.getTitre(titleId, object : DataCallback<Titre> {
             override fun onSuccess(result: Titre?) {
                 titleDetailsView.showTitle(result!!)
             }

@@ -8,6 +8,8 @@ import android.view.Menu
 import android.view.MenuItem
 import tech.skydev.dike.Injection
 import tech.skydev.dike.R
+import tech.skydev.dike.ui.article.ArticleFragment
+import tech.skydev.dike.ui.article.ArticlePresenter
 import tech.skydev.dike.ui.title.TitleFragment
 import tech.skydev.dike.ui.title.TitlesPresenter
 import tech.skydev.dike.ui.titledetails.TitleDetailsFragment
@@ -18,6 +20,8 @@ class MainActivity : AppCompatActivity(), Navigation {
 
 
     private var mTitlesPresenter: TitlesPresenter? = null
+    private lateinit var currentFragmentTag: String
+    private var FRAG_TAG_KEY: String = "frag-tag"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,26 +40,54 @@ class MainActivity : AppCompatActivity(), Navigation {
             }
         }
 
-        var titleFragment: TitleFragment? = supportFragmentManager.findFragmentById(R.id.contentFrame) as? TitleFragment
-        if (titleFragment == null) {
+        if (savedInstanceState == null) {
+            currentFragmentTag = TitleFragment.TAG
             // Create the fragment
-            titleFragment = TitleFragment.newInstance()
+            val titleFragment = TitleFragment.newInstance()
             ActivityUtils.addFragmentToActivity(
-                    supportFragmentManager, titleFragment, R.id.contentFrame, false)
+                    supportFragmentManager, titleFragment, R.id.contentFrame, false, TitleFragment.TAG)
+            // Create the presenter
+            mTitlesPresenter = TitlesPresenter(
+                    Injection.provideConstitutionRepository(this@MainActivity), titleFragment)
+        } else {
+            currentFragmentTag = savedInstanceState.getString(FRAG_TAG_KEY)
+            val titleFragment: TitleFragment? = supportFragmentManager.findFragmentByTag(TitleFragment.TAG) as? TitleFragment
+            titleFragment?.let {
+                TitlesPresenter(
+                        Injection.provideConstitutionRepository(this@MainActivity), titleFragment)
+            }
+            val titledetailsFragment: TitleDetailsFragment? = supportFragmentManager.findFragmentByTag(TitleDetailsFragment.TAG) as? TitleDetailsFragment
+            titledetailsFragment?.let {
+                TitleDetailsPresenter(
+                        Injection.provideConstitutionRepository(this@MainActivity), titledetailsFragment)
+            }
+            val articleFragment: ArticleFragment? = supportFragmentManager.findFragmentByTag(ArticleFragment.TAG) as? ArticleFragment
+            articleFragment?.let {
+                ArticlePresenter(
+                        Injection.provideConstitutionRepository(this@MainActivity), articleFragment)
+            }
+            if (currentFragmentTag == TitleDetailsFragment.TAG || currentFragmentTag == ArticleFragment.TAG) bar.setDisplayHomeAsUpEnabled(true);
         }
-
-        // Create the presenter
-        mTitlesPresenter = TitlesPresenter(
-                Injection.provideConstitutionRepository(applicationContext), titleFragment)
     }
 
-    override fun showTitleScreen(id: String) {
-        val titleDetailsFragment: TitleDetailsFragment = TitleDetailsFragment.newInstance(id)
-        ActivityUtils.addFragmentToActivity(
-                supportFragmentManager, titleDetailsFragment, R.id.contentFrame, true)
-        val titleDetailsPresenter = TitleDetailsPresenter(
-                Injection.provideConstitutionRepository(applicationContext), titleDetailsFragment, id)
 
+    override fun showTitleScreen(id: String) {
+        val titleDetailsFragment = TitleDetailsFragment.newInstance(id)
+        ActivityUtils.addFragmentToActivity(
+                supportFragmentManager, titleDetailsFragment, R.id.contentFrame, true, TitleDetailsFragment.TAG)
+        TitleDetailsPresenter(
+                Injection.provideConstitutionRepository(this@MainActivity), titleDetailsFragment)
+        currentFragmentTag = TitleDetailsFragment.TAG;
+
+    }
+
+    override fun showArticle(titleId: String, articleId: Int) {
+        val articleFragment = ArticleFragment.newInstance(titleId, articleId)
+        ActivityUtils.addFragmentToActivity(
+                supportFragmentManager, articleFragment, R.id.contentFrame, true, ArticleFragment.TAG)
+        ArticlePresenter(
+                Injection.provideConstitutionRepository(this@MainActivity), articleFragment)
+        currentFragmentTag = ArticleFragment.TAG
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -72,11 +104,20 @@ class MainActivity : AppCompatActivity(), Navigation {
 
         if (id == android.R.id.home) {
             onBackPressed()
-        }
-        else if (id == R.id.action_settings) {
+        } else if (id == R.id.action_settings) {
             return true
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        outState?.putString(FRAG_TAG_KEY, currentFragmentTag)
     }
 }

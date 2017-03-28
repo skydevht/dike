@@ -6,4 +6,5 @@ package tech.skydev.dike.ui
 
 interface Navigation {
     fun showTitleScreen(id: String)
+    fun showArticle(titleId: String, articleId: Int)
 }

@@ -1,0 +1,32 @@
+package tech.skydev.dike.ui.article
+
+import tech.skydev.dike.data.ConstitutionRepository
+import tech.skydev.dike.data.DataCallback
+import tech.skydev.dike.data.model.Article
+
+/**
+ * Created by Hash Skyd on 3/28/2017.
+ */
+class ArticlePresenter(val constitutionRepository: ConstitutionRepository, val articleView: ArticleContract.View): ArticleContract.Presenter {
+
+    init {
+        articleView.setPresenter(this)
+    }
+
+    override fun start() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun loadArticle(titleId: String, articleId: Int) {
+        constitutionRepository.getArticle(titleId, articleId, object: DataCallback<Article> {
+            override fun onSuccess(result: Article?) {
+                articleView.showArticle(result!!)
+            }
+
+            override fun onError(t: Throwable) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+        })
+    }
+}

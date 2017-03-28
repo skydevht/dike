@@ -7,10 +7,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import tech.skydev.dike.config.Constant
-import tech.skydev.dike.data.model.Chapter
-import tech.skydev.dike.data.model.DikeJsonDeserialiser
-import tech.skydev.dike.data.model.Section
-import tech.skydev.dike.data.model.Titre
+import tech.skydev.dike.data.model.*
 import tech.skydev.dike.util.FileUtil
 import java.lang.reflect.Type
 
@@ -73,5 +70,26 @@ class ConstitutionRepository(var context: Context) {
             }
         }
         task.execute()
+    }
+
+    fun getArticle(titreId: String, articleId: Int, callback: DataCallback<Article>) {
+        getTitre(titreId, object : DataCallback<Titre> {
+
+            override fun onSuccess(result: Titre?) {
+                var resultArticle: Article? = null
+                result?.chapters!!.flatMap { it.sections!! }.flatMap { it.articles!! }
+                        .forEach {
+                             if (it.id == articleId) {
+                                 resultArticle = it
+                             }
+                        }
+                callback.onSuccess(resultArticle)
+            }
+
+            override fun onError(t: Throwable) {
+                callback.onError(t)
+            }
+
+        })
     }
 }

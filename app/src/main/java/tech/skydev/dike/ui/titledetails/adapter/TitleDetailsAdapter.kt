@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import tech.skydev.dike.R
+import tech.skydev.dike.data.model.Article
 import tech.skydev.dike.data.model.Titre
 
 /**
@@ -15,6 +16,7 @@ import tech.skydev.dike.data.model.Titre
 class TitleDetailsAdapter(internal var data: Titre?) : RecyclerView.Adapter<TitleDetailsAdapter.ViewHolder>() {
 
     lateinit var models: ArrayList<Model>
+    var mListener: ClickListener? = null
 
     init {
         models = setData(data)
@@ -35,7 +37,7 @@ class TitleDetailsAdapter(internal var data: Titre?) : RecyclerView.Adapter<Titl
                     newModels.add(Model("Section "+section.id!!, SECTION_VIEW_TYPE, section))
                 }
                 for (article in section.articles!!) {
-                        newModels.add(Model(article.order, ARTICLE_VIEW_TYPE, chapter))
+                        newModels.add(Model(article.order, ARTICLE_VIEW_TYPE, article))
                 }
             }
         }
@@ -70,6 +72,11 @@ class TitleDetailsAdapter(internal var data: Titre?) : RecyclerView.Adapter<Titl
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindToModel(getItem(position), position)
+        holder.itemView.setOnClickListener {
+            if (getItemViewType(position) == ARTICLE_VIEW_TYPE) {
+                mListener?.onArticleClicked(getItem(position).data as Article)
+            }
+        }
     }
 
     private fun getItem(position: Int): Model {
@@ -98,4 +105,8 @@ class TitleDetailsAdapter(internal var data: Titre?) : RecyclerView.Adapter<Titl
     //endregion
 
     data class Model(val text: String, val itemType: Int, val data: Any?)
+
+    open abstract class ClickListener {
+         abstract fun onArticleClicked(article: Article)
+    }
 }

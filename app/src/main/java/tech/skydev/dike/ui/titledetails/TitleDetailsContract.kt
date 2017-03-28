@@ -13,7 +13,7 @@ interface TitleDetailsContract {
         fun showTitles(titres: ArrayList<Titre>)
     }
     interface Presenter: BasePresenter {
-        fun loadTitle()
+        fun loadTitle(titleId: String)
         fun loadTitles()
     }
 }
