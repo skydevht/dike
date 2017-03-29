@@ -22,8 +22,8 @@ class TitleDetailsPresenter(val constitutionRepository: ConstitutionRepository,
 
     override fun loadTitle(titleId: String) {
         constitutionRepository.getTitre(titleId, object : DataCallback<Titre> {
-            override fun onSuccess(result: Titre?) {
-                titleDetailsView.showTitle(result!!)
+            override fun onSuccess(result: Titre) {
+                titleDetailsView.showTitle(result)
             }
 
             override fun onError(t: Throwable) {
@@ -34,8 +34,8 @@ class TitleDetailsPresenter(val constitutionRepository: ConstitutionRepository,
 
     override fun loadTitles() {
         constitutionRepository.allTitres(object : DataCallback<ArrayList<Titre>> {
-            override fun onSuccess(result: ArrayList<Titre>?) {
-                titleDetailsView.showTitles(result ?: ArrayList<Titre>(0))
+            override fun onSuccess(result: ArrayList<Titre>) {
+                titleDetailsView.showTitles(result)
             }
 
             override fun onError(t: Throwable) {

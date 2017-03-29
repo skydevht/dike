@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ScrollView
+        android:id="@+id/contentPanel"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,7 +44,42 @@
                 tools:text="Lorem ipsum"/>
         </LinearLayout>
 
+
+
     </ScrollView>
+
+    <include
+        android:id="@+id/previous_article"
+        layout="@layout/cell_default"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/contentPanel"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/current_article"
+        android:layout_marginRight="32dp"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <include
+        android:id="@+id/current_article"
+        layout="@layout/cell_default"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        app:layout_constraintRight_toLeftOf="@+id/contentPanel"
+        app:layout_constraintTop_toBottomOf="@+id/previous_article"
+        app:layout_constraintBottom_toTopOf="@+id/next_article"
+        android:layout_marginRight="32dp" />
+
+    <include
+        android:id="@+id/next_article"
+        layout="@layout/cell_default"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/contentPanel"
+        app:layout_constraintTop_toBottomOf="@+id/current_article"
+        android:layout_marginBottom="24dp"
+        android:layout_marginRight="32dp" />
 
 
 

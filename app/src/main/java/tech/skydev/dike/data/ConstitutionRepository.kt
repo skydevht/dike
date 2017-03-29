@@ -7,6 +7,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import tech.skydev.dike.config.Constant
+import tech.skydev.dike.data.exception.DataNotFoundException
 import tech.skydev.dike.data.model.*
 import tech.skydev.dike.util.FileUtil
 import java.lang.reflect.Type
@@ -43,12 +44,17 @@ class ConstitutionRepository(var context: Context) {
             }
 
             override fun onPostExecute(result: ArrayList<Titre>?) {
-                callback.onSuccess(result);
+                if (result == null) {
+                    callback.onError(DataNotFoundException())
+                } else {
+                    callback.onSuccess(result)
+                }
             }
         }
 
         task.execute()
     }
+
     fun getTitre(id: String, callback: DataCallback<Titre>) {
         val filename: String = Constant.CONST_1987_A_DIR + "/titres/titre_" + id + ".json"
 
@@ -66,24 +72,36 @@ class ConstitutionRepository(var context: Context) {
             }
 
             override fun onPostExecute(result: Titre?) {
-                callback.onSuccess(result);
+                if (result == null) {
+                    callback.onError(DataNotFoundException())
+                } else {
+                    callback.onSuccess(result)
+                }
             }
         }
         task.execute()
     }
 
-    fun getArticle(titreId: String, articleId: Int, callback: DataCallback<Article>) {
+    fun getArticle(titreId: String, articleId: Int, callback: DataCallback<Array<Article?>>) {
         getTitre(titreId, object : DataCallback<Titre> {
 
-            override fun onSuccess(result: Titre?) {
-                var resultArticle: Article? = null
+            override fun onSuccess(result: Titre) {
+                val resultArticles: Array<Article?> = arrayOfNulls(3)
                 result?.chapters!!.flatMap { it.sections!! }.flatMap { it.articles!! }
                         .forEach {
-                             if (it.id == articleId) {
-                                 resultArticle = it
-                             }
+                            if (it.id == articleId - 1) {
+                                resultArticles[0] = it //previous article
+                            } else if (it.id == articleId) {
+                                resultArticles[1] = it // the current article
+                            } else if (it.id == articleId + 1) {
+                                resultArticles[2] = it // next article
+                            }
                         }
-                callback.onSuccess(resultArticle)
+                if (resultArticles[1] == null) {
+                    callback.onError(DataNotFoundException())
+                } else {
+                    callback.onSuccess(resultArticles)
+                }
             }
 
             override fun onError(t: Throwable) {

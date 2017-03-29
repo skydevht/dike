@@ -18,9 +18,10 @@ class ArticlePresenter(val constitutionRepository: ConstitutionRepository, val a
     }
 
     override fun loadArticle(titleId: String, articleId: Int) {
-        constitutionRepository.getArticle(titleId, articleId, object: DataCallback<Article> {
-            override fun onSuccess(result: Article?) {
-                articleView.showArticle(result!!)
+        constitutionRepository.getArticle(titleId, articleId, object: DataCallback<Array<Article?>> {
+            override fun onSuccess(result: Array<Article?>) {
+                articleView.showArticle(result[1]!!)
+                articleView.updateNavigation(result);
             }
 
             override fun onError(t: Throwable) {

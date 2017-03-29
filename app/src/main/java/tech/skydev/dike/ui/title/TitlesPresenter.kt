@@ -20,8 +20,8 @@ class TitlesPresenter(val constitutionRepository: ConstitutionRepository,
 
     override fun loadSections() {
         constitutionRepository.allTitres(object : DataCallback<ArrayList<Titre>> {
-            override fun onSuccess(result: ArrayList<Titre>?) {
-                titlesView.showTitles(result ?: ArrayList<Titre>(0))
+            override fun onSuccess(result: ArrayList<Titre>) {
+                titlesView.showTitles(result)
             }
 
             override fun onError(t: Throwable) {

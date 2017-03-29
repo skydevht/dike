@@ -19,6 +19,9 @@ class ArticleFragment(): BaseFragment(), ArticleContract.View {
 
     private var mArticleNameTV: TextView? = null
     private var mArticleTextTV: TextView? = null
+    private var mPreviousArticleView: View? = null
+    private var mCurrentArticleView: View? = null
+    private var mNextArticleView: View? = null
 
     private var mArticleId: Int = -1
 
@@ -39,6 +42,9 @@ class ArticleFragment(): BaseFragment(), ArticleContract.View {
         val rootView = inflater!!.inflate(R.layout.fragment_article, container, false )
         mArticleNameTV = rootView.findViewById(R.id.article_name) as TextView
         mArticleTextTV = rootView.findViewById(R.id.article_text) as TextView
+        mPreviousArticleView = rootView.findViewById(R.id.previous_article)
+        mCurrentArticleView = rootView.findViewById(R.id.current_article)
+        mNextArticleView = rootView.findViewById(R.id.next_article)
         return rootView
     }
 
@@ -56,6 +62,34 @@ class ArticleFragment(): BaseFragment(), ArticleContract.View {
     override fun showArticle(article: Article) {
         mArticleNameTV?.text = "Article ${article.order}"
         mArticleTextTV?.text = Html.fromHtml(article.text)
+        mArticleId = article.id
+    }
+
+    override fun updateNavigation(articles: Array<Article?>) {
+        for(i in 0..2) {
+            val article:Article? = articles[i]
+            val view: View = when(i) {
+                0 -> mPreviousArticleView
+                1 -> mCurrentArticleView
+                2 -> mNextArticleView
+                else -> View(context)
+            }!!
+            if (article == null) {
+                // current article is first or last
+                view.visibility = View.INVISIBLE
+                view.isClickable = false
+            } else {
+                view.visibility = View.VISIBLE // restore view visibility
+                val textView = view.findViewById(R.id.name) as TextView
+                textView.text = article.order
+                view.setOnClickListener { mPresenter.loadArticle(mTitleId, article.id) }
+                if (i == 1) {
+                    // current View
+                    view.setBackgroundColor(context.resources.getColor(R.color.colorAccent))
+                    textView.setTextColor(context.resources.getColor(R.color.colorPrimaryDark))
+                }
+            }
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {

@@ -10,6 +10,7 @@ import tech.skydev.dike.data.model.Article
 interface ArticleContract {
     interface View: BaseView<Presenter> {
         fun showArticle(article: Article)
+        fun updateNavigation(articles: Array<Article?>)
     }
     interface Presenter: BasePresenter {
         fun loadArticle(titleId: String, articleId: Int)

@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.AsyncTask
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import tech.skydev.dike.data.exception.DataNotFoundException
 import tech.skydev.dike.util.FileUtil
 import java.lang.reflect.Type
 
@@ -38,6 +39,10 @@ constructor(val context: Context,
     abstract fun getJsonType(): Class<T>
 
     override fun onPostExecute(result: T?) {
-        callback.onSuccess(result);
+        if (result == null) {
+            callback.onError(DataNotFoundException())
+        } else {
+            callback.onSuccess(result)
+        }
     }
 }
