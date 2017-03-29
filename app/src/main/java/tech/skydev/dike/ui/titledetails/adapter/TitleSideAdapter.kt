@@ -37,7 +37,7 @@ abstract class TitleSideAdapter(internal var models: ArrayList<Titre>) : Recycle
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindToModel(getItem(position), position)
-        if (position == 1) {
+        if (position > 0) {
             holder.itemView.setOnClickListener { onCellClick(getItem(position), position) }
         }
     }

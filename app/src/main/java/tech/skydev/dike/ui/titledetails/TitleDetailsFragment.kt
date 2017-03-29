@@ -29,7 +29,7 @@ class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
     var mAdapter: TitleDetailsAdapter = TitleDetailsAdapter(null)
     var mSideAdapter: TitleSideAdapter = object : TitleSideAdapter(ArrayList<Titre>(0)) {
         override fun onCellClick(model: Titre, pos: Int) {
-            //
+            mPresenter?.loadTitle(model.id!!)
         }
 
     }
@@ -98,6 +98,9 @@ class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
         val bar = (activity as AppCompatActivity).supportActionBar
         bar?.title = "Titre " + titre.id
         bar?.subtitle = titre.name
+        mSideAdapter.selectedId = titre.id
+        mTitleId = titre.id!!;
+        mSideAdapter.notifyDataSetChanged()
     }
 
     lateinit var mTitleId: String
