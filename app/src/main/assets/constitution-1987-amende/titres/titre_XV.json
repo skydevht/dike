@@ -8,6 +8,19 @@
         {
           "id": null,
           "articles": [
+            {
+              "id": 1,
+              "order": "296",
+              "text": "<p>Tous les Codes de Lois ou Manuels de justice, tous les Décrets-Lois et tous les Décrets et Arrêtés actuellement en vigueur sont maintenus en tout ce qui n’est pas contraire à la présente Constitution.</p>"
+            }, {
+              "id": 2,
+              "order": "297",
+              "text": "<p>Sont et demeurent abrogés.</p>"
+            }, {
+              "id": 3,
+              "order": "298",
+              "text": "<p>La présente Constitution doit être publiée dans la quinzaine de sa ratification par voie référendaire. Elle entre en vigueur dès sa publication AU MONITEUR, Journal Officiel de la République.</p><p>Donné au Palais Législatif, à Port-au-Prince, siège de l’Assemblée Nationale Constituante, le 10 Mars 1987, An 184ème de l’Indépendance.</p>"
+            }
           ]
         }
       ]

@@ -8,6 +8,75 @@
         {
           "id": null,
           "articles": [
+            {
+              "id": 1,
+              "order": "275",
+              "text": "<p>Le chômage de l’Administration Publique et Privée et du Commerce sera observé à l’occasion des Fêtes Nationales et des Fêtes Légales.</p>"
+            }, {
+              "id": 2,
+              "order": "275.1",
+              "text": "<p>Les fêtes nationales sont:</p><p>1)La Fête de l’Indépendance Nationale le Premier Janvier;</p><p>2)Le Jour des Aïeux le 2 Janvier;</p><p>3)La Fête de l’Agriculture et du Travail le Premier Mai;</p><p>4)La Fête du Drapeau et de l’Université le 18 mai;</p><p>5)La Commémoration de la Bataille de Vertières JOUR DES FORCES ARMÉES, le 18 novembre.</p>"
+            }, {
+              "id": 3,
+              "order": "275.2",
+              "text": "<p>Les Fêtes Légales sont déterminées par la Loi.</p>"
+            }, {
+              "id": 4,
+              "order": "276",
+              "text": "<p>L’Assemblée Nationale ne peut ratifier aucun Traité, Convention ou Accord Internationaux comportant des clauses contraires à la présente Constitution.</p>"
+            }, {
+              "id": 5,
+              "order": "276.1",
+              "text": "<p>La ratification des Traités, des Conventions et des Accords Internationaux est donnée sous forme de Décret.</p>"
+            }, {
+              "id": 6,
+              "order": "276.2",
+              "text": "<p>Les Traités ou Accord Internationaux, une fois sanctionnés et ratifiés dans les formes prévues par la Constitution, font partie de la Législation du Pays et abrogent toutes les Lois qui leur sont contraires.</p>"
+            }, {
+              "id": 7,
+              "order": "277",
+              "text": "<p>L’Etat Haïtien peut intégrer une Communauté Economique d’Etat dans la mesure où l’Accord d’Association stimule le développement économique et social de la République d’Haïti et ne comporte aucune clause contraire à la Présente Constitution.</p>"
+            }, {
+              "id": 8,
+              "order": "278",
+              "text": "<p>Aucune place, aucune partie du Territoire ne peut être déclarée en état de siège qu’en cas de guerre civile ou d’invasion de la part d’une force etrangère.</p>"
+            }, {
+              "id": 9,
+              "order": "278.1",
+              "text": "<p>L’acte du Président de la République déclaratif d’état de siège, doit être contresigné par le Premier Ministre, par tous les Ministres et porter convocation immédiate de l’Assemblée Nationale appelée à se prononcer sur l’opportunité de la mesure.</p>"
+            }, {
+              "id": 10,
+              "order": "278.2",
+              "text": "<p>L’Assemblée Nationale arrête avec le Pouvoir Exécutif, les Garanties Constitutionnelles qui peuvent être suspendues dans les parties du Territoire mises en état de siège.</p>"
+            }, {
+              "id": 11,
+              "order": "278.3",
+              "text": "<p>L’Etat de siège devient caduc s’il n’est pas renouvelé tous les quinze (15) jours après son entrée en vigueur par un vote de l’Assemblée Nationale.</p>"
+            }, {
+              "id": 12,
+              "order": "278.4",
+              "text": "<p>L’Assemblée Nationale siège pendant toute la durée de l’Etat de siège.</p>"
+            }, {
+              "id": 13,
+              "order": "279",
+              "text": "<p>Trente (30) jours après son élection, le Président de la République doit déposer au greffe du Tribunal de Première Instance de son domicile, l’inventaire notarié de tous ses biens, meubles et immeubles, il en sera de même à la fin de son mandat.</p>"
+            }, {
+              "id": 14,
+              "order": "279.1",
+              "text": "<p>Le Premier Ministre, les Ministres et Secrétaires d’Etat sont astreints à la même obligation dans les trente (30) jours de leur installation et de leur sortie de fonction.</p>"
+            }, {
+              "id": 15,
+              "order": "280",
+              "text": "<p>Aucun frais, aucune indemnité généralement quelconque n’est accordé aux Membres des Grands Corps de l’Etat à titre des tâches spéciales qui leur sont attribuées.</p>"
+            }, {
+              "id": 16,
+              "order": "281",
+              "text": "<p>A l’occasion des consultations nationales, l’Etat prend en charge proportionnellement un nombre de suffrages obtenus une partie des frais encourus durant les campagnes électorales.</p>"
+            }, {
+              "id": 17,
+              "order": "281.1",
+              "text": "<p>Ne sont éligibles à de telles facilités que les partis qui auront au niveau national obtenu dix pour cent (10%) des suffrages exprimés avec un plancher départemental de suffrage de cinq pour cent (5%).</p>"
+            }
           ]
         }
       ]

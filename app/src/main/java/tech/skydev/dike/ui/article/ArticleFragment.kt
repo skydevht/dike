@@ -1,7 +1,7 @@
 package tech.skydev.dike.ui.article
 
+import android.animation.Animator
 import android.os.Bundle
-import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,16 +9,16 @@ import android.widget.TextView
 import tech.skydev.dike.R
 import tech.skydev.dike.base.BaseFragment
 import tech.skydev.dike.data.model.Article
+import tech.skydev.dike.util.ViewAnimationUtils
+import tech.skydev.dike.widget.ArticleView
 
 /**
  * Created by Hash Skyd on 3/27/2017.
  */
-class ArticleFragment(): BaseFragment(), ArticleContract.View {
+class ArticleFragment() : BaseFragment(), ArticleContract.View {
 
 
-
-    private var mArticleNameTV: TextView? = null
-    private var mArticleTextTV: TextView? = null
+    private var mArticleView: ArticleView? = null
     private var mPreviousArticleView: View? = null
     private var mCurrentArticleView: View? = null
     private var mNextArticleView: View? = null
@@ -39,9 +39,8 @@ class ArticleFragment(): BaseFragment(), ArticleContract.View {
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = inflater!!.inflate(R.layout.fragment_article, container, false )
-        mArticleNameTV = rootView.findViewById(R.id.article_name) as TextView
-        mArticleTextTV = rootView.findViewById(R.id.article_text) as TextView
+        val rootView = inflater!!.inflate(R.layout.fragment_article, container, false)
+        mArticleView = rootView.findViewById(R.id.article_view) as ArticleView
         mPreviousArticleView = rootView.findViewById(R.id.previous_article)
         mCurrentArticleView = rootView.findViewById(R.id.current_article)
         mNextArticleView = rootView.findViewById(R.id.next_article)
@@ -60,15 +59,16 @@ class ArticleFragment(): BaseFragment(), ArticleContract.View {
     }
 
     override fun showArticle(article: Article) {
-        mArticleNameTV?.text = "Article ${article.order}"
-        mArticleTextTV?.text = Html.fromHtml(article.text)
+        mArticleView?.article = article
         mArticleId = article.id
     }
 
+    var mClickeIndicatorId: Int = -1
+
     override fun updateNavigation(articles: Array<Article?>) {
-        for(i in 0..2) {
-            val article:Article? = articles[i]
-            val view: View = when(i) {
+        for (i in 0..2) {
+            val article: Article? = articles[i]
+            val view: View = when (i) {
                 0 -> mPreviousArticleView
                 1 -> mCurrentArticleView
                 2 -> mNextArticleView
@@ -81,12 +81,37 @@ class ArticleFragment(): BaseFragment(), ArticleContract.View {
             } else {
                 view.visibility = View.VISIBLE // restore view visibility
                 val textView = view.findViewById(R.id.name) as TextView
-                textView.text = article.order
-                view.setOnClickListener { mPresenter.loadArticle(mTitleId, article.id) }
-                if (i == 1) {
-                    // current View
-                    view.setBackgroundColor(context.resources.getColor(R.color.colorAccent))
-                    textView.setTextColor(context.resources.getColor(R.color.colorPrimaryDark))
+
+                val darken = (i == 1)
+                if (mClickeIndicatorId == -1 && i == 1) {
+                    ViewAnimationUtils.changeCellColor(view, !darken)
+                }
+                if (mClickeIndicatorId == i || (i == 1 && mClickeIndicatorId != -1)) {
+                    // animate only the clicked object
+                    ViewAnimationUtils.changeCellColor(view, darken, object : Animator.AnimatorListener {
+                        override fun onAnimationRepeat(animation: Animator?) {}
+
+                        override fun onAnimationEnd(animation: Animator?) {
+                            ViewAnimationUtils.changeCellColor(view, !darken)
+                            mClickeIndicatorId = -1
+                            textView.text = article.order
+                            view.setOnClickListener {
+                                mClickeIndicatorId = i
+                                mPresenter.loadArticle(mTitleId, article.id)
+                            }
+
+                        }
+
+                        override fun onAnimationCancel(animation: Animator?) {}
+
+                        override fun onAnimationStart(animation: Animator?) {}
+                    })
+                } else {
+                    textView.text = article.order
+                    view.setOnClickListener {
+                        mClickeIndicatorId = i
+                        mPresenter.loadArticle(mTitleId, article.id)
+                    }
                 }
             }
         }

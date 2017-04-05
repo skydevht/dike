@@ -8,6 +8,51 @@
         {
           "id": null,
           "articles": [
+            {
+              "id": 1,
+              "order": "53",
+              "text": "<p>Les conditions d’admission et de séjour des étrangers dans le pays sont établies par la loi.</p>"
+            }, {
+              "id": 2,
+              "order": "54",
+              "text": "<p>Les étrangers qui se trouvent sur le territoire de la République bénéficient de la même protection que celle qui est accordée aux haïtiens, conformément à la loi.</p>"
+            }, {
+              "id": 3,
+              "order": "54.1",
+              "text": "<p>L’étranger jouit des droits civils, des droits économiques et sociaux sous la réserve des dispositions légales relatives au droit de propriété immobilière, à l’exercice des professions, au commerce de gros, à la représentation commerciale et aux opérations d’importation et d’exportation.</p>"
+            }, {
+              "id": 4,
+              "order": "55",
+              "text": "<p>Le droit de propriété immobilière est accordé à l’étranger résidant en Haïti pour les besoins de sa demeure.</p>"
+            }, {
+              "id": 5,
+              "order": "55.1",
+              "text": "<p>Cependant, l’étranger résidant en Haïti ne peut être propriétaire de plus d’une maison d’habitation dans un même arrondissement. Il ne peut en aucun cas se livrer au trafic de location d’immeubles. Toutefois, les sociétés étrangères de promotion immobilière bénéficient d’un statut spécial réglé par la loi.</p>"
+            }, {
+              "id": 6,
+              "order": "55.2",
+              "text": "<p>Le droit de propriété immobilière est également accordé à l’étranger résidant en Haïti et aux sociétés étrangères pour les besoins de leurs entreprises agricoles, commerciales, industrielles, religieuses, humanitaires ou d’enseignement, dans les limites et conditions déterminées par la loi.</p>"
+            }, {
+              "id": 7,
+              "order": "55.3",
+              "text": "<p>Aucun étranger ne peut être propriétaire d’un immeuble borné par la frontière terrestre haïtienne.</p>"
+            }, {
+              "id": 8,
+              "order": "55.4",
+              "text": "<p>Ce droit prend fin cinq (5) années après que l’étranger n’a cessé de résider dans le pays ou qu’ont cessé les opérations de ces sociétés, conformément à la loi qui détermine les règlements à suivre pour la transmission et la liquidation des biens appartenant aux étrangers.</p>"
+            }, {
+              "id": 9,
+              "order": "55.5",
+              "text": "<p>Les contrevenants aux sus-dites dispositions ainsi que leurs complices seront punis conformément à la loi.</p>"
+            }, {
+              "id": 10,
+              "order": "56",
+              "text": "<p>L’étranger peut être expulsé du territoire de la République lorsqu’il s’immisce dans la vie politique du pays et dans les cas déterminés par la loi.</p>"
+            }, {
+              "id": 11,
+              "order": "57",
+              "text": "<p>Le droit d’asile est reconnu aux réfugiés politiques.</p>"
+            }
           ]
         }
       ]

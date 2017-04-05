@@ -8,6 +8,43 @@
         {
           "id": null,
           "articles": [
+            {
+              "id": 1,
+              "order": "10",
+              "text": "<p>Les règles relatives à la Nationalité Haïtienne sont déterminées par la Loi.</p>"
+            }, {
+              "id": 2,
+              "order": "11",
+              "text": "<p>Possède la Nationalité Haïtienne d’origine, tout individu né d’un père haïtien ou d’une mère haïtienne qui eux-mêmes sont nés Haïtiens et n’avaient jamais renoncé à leur nationalité au moment de la naissance.</p>"
+            }, {
+              "id": 3,
+              "order": "11.-1",
+              "text": "<p>La loi établit les conditions dans lesquelles un individu peut acquérir la nationalité haïtienne.</p>"
+            }, {
+              "id": 4,
+              "order": "12",
+              "text": "<p></p>"
+            }, {
+              "id": 5,
+              "order": "12.1",
+              "text": "<p></p>"
+            }, {
+              "id": 6,
+              "order": "12.2",
+              "text": "<p></p>"
+            }, {
+              "id": 7,
+              "order": "13",
+              "text": "<p></p>"
+            }, {
+              "id": 8,
+              "order": "14",
+              "text": "<p></p>"
+            }, {
+              "id": 9,
+              "order": "15",
+              "text": "<p></p>"
+            }
           ]
         }
       ]

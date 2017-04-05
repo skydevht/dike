@@ -8,6 +8,295 @@
         {
           "id": null,
           "articles": [
+            {
+             "id": 1,
+             "order": "190bis",
+             "text": "<p>Le Conseil Constitutionnel est un organe chargé d’assurer la constitutionnalité des lois. Il est juge de la constitutionnalité de la loi, des règlements et des actes administratifs du Pouvoir Exécutif. Ses décisions ne sont susceptibles d’aucun recours.</p>"
+            }, {
+             "id": 2,
+             "order": "190bis.1",
+             "text": "<p>Le Conseil Constitutionnel est composé de neuf (9) membres, dont trois (3) sont désignés par le Pouvoir Exécutif, trois (3) par l’Assemblée Nationale à la majorité des deux tier s (2/3) des membres de chacune des deux chambres, trois (3) par le Conseil Supérieur du Pouvoir Judiciaire.</p><p>Le Conseil Constitutionnel comprend :</p><p>a)trois magistrats ayant une expérience de dix (10) ans au moins, dont un est désigné par le Pouvoir Exécutif, par l’Assemblée Nationale a la majorité des deux tiers (2/3) des membres de chacune des deux chambres, trois (3) par le Conseil Supérieur du Pouvoir Judiciaire;</p><p>b)trois juristes de haut niveau, professeurs ou avocats ayant une expérience de dix (10) ans au moins, dont un est désigné par le Pouvoir Exécutif, par l’Assemblée Nationale à  la majorité des deux tiers (2/3) des membres de chacune des deux chambres, trois (3) par le Conseil Supérieur du Pouvoir Judiciaire;</p><p>c)trois personnalités de grande réputation professionnelle ayant une expérience de dix (10) ans au moins, dont un est désigné par le Pouvoir Exécutif, par l’Assemblée Nationale À la majorité des deux tiers (2/3) des membres de chacune des deux chambres, trois (3) par le Conseil Supérieur du Pouvoir Judiciaire</p>"
+            }, {
+              "id": 3,
+              "order": "190ter",
+              "text": "<p>Le Président de la République procède à la nomination des membres du Conseil Constitutionnel par Arrêté pris en Conseil des Ministres, conformément à l’article précédent.</p>"
+            }, {
+             "id": 4,
+             "order": "190ter.1",
+             "text": "<p>Pour être membre du Conseil Constitutionnel il faut:</p><p>1)être haïtien d’origine et ne détenir aucune autre nationalité au moment de la nomination ;</p><p>2)être âgé de quarante (40) ans accomplis au jour de la nomination ;</p><p>3)Jouir de ses droits civils et politiques et n’avoir jamais été condamné à une peine afflictive et infamante pour crime de droit commun ;</p><p>4)être propriétaire d’un immeuble en Haïti ou y exercer une industrie ou une profession ;</p><p>5)Résider en Haïti depuis cinq (5) années consécutives avant la date de la nomination ;</p><p>6)avoir reçu décharge de sa gestion si on a été comptable des deniers publics ;</p><p>7)être de bonne moralité et de grande probité.</p>"
+            }, {
+              "id": 5,
+              "order": "190ter.2",
+              "text": "<p>La durée du mandat des membres du Conseil Constitutionnel est de neuf (9) ans et n’est pas renouvelable. Le Conseil Constitutionnel se renouvelle par tiers tous les trois (3) ans. Le Président du Conseil Constitutionnel est élu par ses pairs pour une durée de trois (3) ans. Il a voix prépondérante en cas de partage.</p>"
+            }, {
+              "id": 6,
+              "order": "190ter.3",
+              "text": "<p>En cas de vacance au Conseil Constitutionnel, l’autorité de désignation pourvoit au remplacement pour le temps qui reste à courir dans un délai de trois (3) mois.</p>"
+            }, {
+              "id": 7,
+              "order": "190ter.4",
+              "text": "<p>Les membres du Conseil Constitutionnel sont inamovibles pendant la durée de leur mandat. Ils ne peuvent être poursuivis ou arrêtés sans l’autorisation du Conseil Constitutionnel sauf en cas de flagrant délit. Dans ce cas, le Président du Conseil Constitutionnel et le Président de la Cour de Cassation doivent être saisis immédiatement au plus tard dans les quarante huit (48) heures.</p>"
+            }, {
+              "id": 8,
+              "order": "190ter.5",
+              "text": "<p>Le Conseil Constitutionnel veille et statue lorsqu’il est saisi :</p><p>a)sur la constitutionnalité des lois organiques avant leur promulgation ;</p><p>b)sur la constitutionnalité des règlements intérieurs du Sénat et de la Chambre des Députés avant leur mise en application.</p><p>c)sur les arrêtés.</p><p>Aux mêmes fins, les lois en général peuvent être déférées au Conseil constitutionnel, avant leur promulgation, par le Président de la République, le Président du Sénat, le Président de la Chambre des Députés, un groupe de quinze (15) députés ou de dix</p><p>La loi détermine les autres entités habilitées à saisir le Conseil Constitutionnel.</p>"
+            }, {
+              "id": 9,
+              "order": "190ter.6",
+              "text": "<p>Le Conseil Constitutionnel doit statuer dans le délai d’un mois après avoir été saisi d’un texte de loi ordinaire. Ce délai est de quinze jours pour toute loi ou tout texte portant sur les droits fondamentaux et les libertés publiques. Toutefois, s’il y a urgence, à la demande du Gouvernement, du tiers du Sénat ou du tiers de la Chambre des Députés, ce délai est ramené à huit jours.</p><p>Dans ces mêmes cas, la saisine du Conseil Constitutionnel suspend le délai de promulgation.</p>"
+            }, {
+              "id": 10,
+              "order": "190ter.7",
+              "text": "<p>Le Conseil Constitutionnel est appelé à se prononcer sur les conflits qui opposent le Pouvoir Exécutif et le Pouvoir Législatif ou les deux branches du Pouvoir Législatif.</p><p>De même, il se prononce sur les conflits d’attribution entre les tribunaux administratifs, les tribunaux électoraux et les tribunaux judiciaires.</p>"
+            }, {
+              "id": 11,
+              "order": "190ter.8",
+              "text": "<p>Lorsqu’à l’occasion d’une instance en cours devant une juridiction, il est soulevé une exception d’inconstitutionnalité, le Conseil Constitutionnel peut en être saisi sur renvoi de la Cour de Cassation.</p><p>Si la disposition est déclarée inconstitutionnelle, le Conseil Constitutionnel la renvoie au Parlement qui statue souverainement sur le cas. La nouvelle disposition est promulguée.</p>"
+            }, {
+              "id": 12,
+              "order": "190ter.9",
+              "text": "<p>Une disposition déclarée inconstitutionnelle ne peut être promulguée ni mise en application.</p>"
+            }, {
+              "id": 13,
+              "order": "190ter.10",
+              "text": "<p>Une loi organique détermine l’organisation et le fonctionnement du Conseil Constitutionnel, la procédure suivie devant elle, notamment les délais pour la saisine des contestations de même que les immunités et le régime disciplinaire de ses membres.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "I",
+      "name": "DU CONSEIL ÉLECTORAL PERMANENT",
+      "sections": [
+        {
+          "id": null,
+          "articles": [
+            {
+              "id": 14,
+              "order": "191",
+              "text": "<p>Le Conseil Electoral est chargé d’organiser et de contrôler en toute indépendance, toutes les opérations électorales sur tout le territoire de la République jusqu’à la proclamation des résultats du scrutin.</p>"
+            }, {
+              "id": 15,
+              "order": "191.1",
+              "text": "<p>Il élabore également le Projet de Loi Électorale qu’il soumet au Pouvoir exécutif pour les suites nécessaires.</p>"
+            }, {
+              "id": 16,
+              "order": "191.2",
+              "text": "<p>Il s’assure de la tenue à jour des listes électorales.</p>"
+            }, {
+              "id": 17,
+              "order": "192",
+              "text": "<p>Le Conseil Électoral Permanent comprend neuf (9) Membres choisis comme suit :</p><p>1.trois (3) par le Pouvoir Exécutif;</p><p>2.trois (3) par la Conseil supérieur du Pouvoir Judiciaire ;</p><p>3.trois (3) par l’Assemblée Nationale avec une majorité de 2/3 de chacune des deux chambres.</p>"
+            }, {
+              "id": 18,
+              "order": "193",
+              "text": "<p>Pour être membre du Conseil Electoral Permanent, il faut:</p><p>1.être haítien d’origine</p><p>2.être âgé au moins de 40 ans révolus;</p><p>3.jouir de ses droits civils et politiques et n’avoir jamais été condamné à une peine afflictive et infamante;</p><p>4.avoir reçu décharge de sa gestion si on a été comptable de deniers publics;</p><p>5.avoir résidé dans le pays au moins trois (3) ans avant sa nomination.</p>"
+            }, {
+              "id": 19,
+              "order": "194",
+              "text": "<p>Les membres du Conseil Electoral Permanent sont nommés pour une période de (9) neuf ans non renouvelable. Ils sont inamovibles.</p>"
+            }, {
+              "id": 20,
+              "order": "194.1",
+              "text": "<p>Le Conseil Electoral Permanent est renouvelable par tiers tous les (3) trois ans. Le Président est choisi parmi les membres.</p>"
+            }, {
+              "id": 21,
+              "order": "194.2",
+              "text": "<p>Avant d’entrer en fonction, les membres du Conseil Electoral Permanent prêtent le serment suivant devant la Cour de Cassation:</p><p>“Je jure de respecter la Constitution et les dispositions de la Loi Électorale et de m’acquitter de ma tâche avec dignité, indépendance, impartialité et patriotisme”.</p>"
+            }, {
+              "id": 22,
+              "order": "195",
+              "text": "<p>En cas de faute grave commise dans l’exercice de leur fonction, les membres du Conseil Electoral Permanent sont passibles de la Haute Cour de Justice.</p>"
+            }, {
+              "id": 23,
+              "order": "196",
+              "text": "<p>Les membres du Conseil Electoral Permanent ne peuvent occuper aucune fonction publique, ni se porter candidat à une fonction élective pendant toute la durée de leur mandat.</p><p>En cas de démission, tout membre du Conseil doit attendre trois (3) ans avant de pouvoir briguer une fonction élective.</p>"
+            }, {
+              "id": 24,
+              "order": "197",
+              "text": "<p>Le Conseil Electoral Permanent est le Contentieux de toutes les contestations soulevées à l’occasion soit des élections, soit de l’application ou de la violation de la loi électorale, sous réserve de toute poursuite légale à entreprendre le ou les coupables par devant les tribunaux compétents.</p>"
+            }, {
+              "id": 25,
+              "order": "198",
+              "text": "<p>En cas de vacance créée par décès, démission ou toute autre cause, il est pourvu au remplacement du membre, suivant la procédure fixée par l’Article 192 pour le temps qui reste à courir, compte tenu du Pouvoir qui avait désigné le membre à remplacer.</p>"
+            }, {
+              "id": 26,
+              "order": "199",
+              "text": "<p>La loi détermine les règles d’organisation et de fonctionnement du Conseil Electoral Permanent.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "II",
+      "name": "DE LA COUR SUPÉRIEURE DES COMPTES ET DU CONTENTIEUX ADMINISTRATIF",
+      "sections": [
+        {
+          "id": null,
+          "articles": [
+            {
+              "id": 27,
+              "order": "200",
+              "text": "<p>La Cour Supérieure des Comptes et du Contentieux Administratif est une juridiction financière, administrative, indépendante et autonome. Elle est chargée du contrôle administratif et juridictionnel des recettes et des dépenses de l’Etat, de la vérification de la comptabilité des Entreprises de l’Etat ainsi que de celles des collectivités territoriales.</p>"
+            }, {
+              "id": 28,
+              "order": "200.1",
+              "text": "<p>La Cour Supérieure des Comptes du Contentieux Administratif connait des litiges mettant en cause l’Etat et les Collectivités territoriales, l’Administration et les fonctionnaires publics, les services publics et les administrés.</p>"
+            }, {
+              "id": 29,
+              "order": "200.2",
+              "text": "<p>Ses décisions ne sont susceptibles d’aucun recours sauf, de pourvoi en cassation.</p>"
+            }, {
+              "id": 30,
+              "order": "200.3",
+              "text": "<p>La Cour Supérieure des Comptes et du Contentieux Administratif comprend deux sections:</p><p>1) la section du Contrôle financier;</p><p>2) la section du Contentieux administratif.</p>"
+            }, {
+              "id": 31,
+              "order": "200.4",
+              "text": "<p>La Cour Supérieure des Comptes et du Contentieux administratif participe à l’élaboration du Budget et est consultée sur toutes les questions relatives à la législation sur les Finances Publiques et sur tous les Projets de Contrats, Accords et Conventions à caractère financier et commercial auxquels l’Etat est partie. Elle a le droit de réaliser les audits dans toutes administrations publiques.</p>"
+            }, {
+              "id": 32,
+              "order": "200.5",
+              "text": "<p>Pour être membre de la Cour Supérieure des Comptes et du Contentieux Administratif, il faut:</p><p>a)être haïtien et n’avoir jamais renoncé à sa Nationalité;</p><p>b)être âgé de trente-cinq (35) ans accomplis;</p><p>c)avoir reçu décharge de sa gestion lorsqu’on a été comptable des deniers publics;</p><p>d)être licencié en droit ou être comptable agréé ou détenteur d’un diplôme d’Etudes Supérieures d’Administration Publique, d’Economie et de Finances publiques;</p><p>e)avoir une expérience de (5) années dans une Administration publique ou privée;</p><p>f)jouir de ses droits civils et politiques.</p>"
+            }, {
+              "id": 33,
+              "order": "200.6",
+              "text": "<p>Les candidats à cette fonction font directement le dépôt de leur candidature au Bureau du Sénat de la République. Le Sénat élit les dix (10) membres de la Cour, qui parmi eux désignent leurs Président et Vice-Président.</p>"
+            }, {
+              "id": 34,
+              "order": "201",
+              "text": "<p>Ils sont investis d’un (1) mandat de dix (10) années et sont inamovibles.</p>"
+            }, {
+              "id": 35,
+              "order": "202",
+              "text": "<p>Avant d’entrer en fonction les membres de la Cour Supérieure des Comptes et du Contentieux Administratif prêtent devant une Section de la Cour de Cassation, le serment suivant:</p><p>“Je jure de respecter la Constitution et les lois de la République, de remplir mes fonctions avec exactitude et loyauté et de me conduire en tout avec dignité”.</p>"
+            }, {
+              "id": 36,
+              "order": "203",
+              "text": "<p>Les membres de la Cour Supérieure des Comptes et du Contentieux Administratif sont justiciables de la Haute Cour de Justice pour les fautes graves commises dans l’exercice de leur fonction.</p>"
+            }, {
+              "id": 37,
+              "order": "204",
+              "text": "<p>La Cour Supérieure des Comptes et du Contentieux Administratif fait parvenir chaque année au Corps législatif dans les trente 930) jours qui suivent l’ouverture de la Première Session législative, un rapport complet sur la situation financière du Pays et sur l’efficacité des dépenses publiques.</p>"
+            }, {
+              "id": 38,
+              "order": "205",
+              "text": "<p>L’organisation de la Cour sus-mentionnée, le statut de ses membres, son mode de fonctionnement sont établis par la loi.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "III",
+      "name": "DE LA COMMISSION DE CONCILIATION",
+      "sections": [
+        {
+          "id": null,
+          "articles": [
+            {
+              "id": 39,
+              "order": "206",
+              "text": "<p></p>"
+            }, {
+              "id": 40,
+              "order": "206.1",
+              "text": "<p></p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "IV",
+      "name": "DE LA PROTECTION DU CITOYEN",
+      "sections": [
+        {
+          "id": null,
+          "articles": [
+            {
+              "id": 41,
+              "order": "207",
+              "text": "<p>Il est créé un office dénommé OFFICE DE LA PROTECTION DU CITOYEN dont le but est de protéger tout individu contre toutes les formes d’abus de l’Administration Publique.</p>"
+            }, {
+              "id": 42,
+              "order": "207.1",
+              "text": "<p>L’Office est dirigé par un citoyen qui porte le titre de PROTECTEUR DU CITOYEN. Il est choisi par consensus entre le Président de la République, le Président du Sénat et le Président de la Chambre des députés. Il est investi d’un mandat de sept (7) ans, non renouvelable.</p>"
+            }, {
+              "id": 43,
+              "order": "207.2",
+              "text": "<p>Son intervention en faveur de tout plaignant se fait sans frais aucun, quelle que soit la juridiction.</p>"
+            }, {
+              "id": 44,
+              "order": "207.2bis",
+              "text": "<p>Dans l’exercice de ses fonctions, il accordera une attention spéciale aux plaintes déposées par les femmes, particulièrement en ce qui a trait aux discriminations et aux agressions dont elles peuvent être victimes notamment dans leur travail.</p>"
+            }, {
+              "id": 45,
+              "order": "207.3",
+              "text": "<p>Une loi fixe les conditions et les règlements de fonctionnement de l’Office du Protecteur du Citoyen.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "V",
+      "name": "DE L’UNIVERSITÉ – DE L’ACADÉMIE – DE LA CULTURE",
+      "sections": [
+        {
+          "id": null,
+          "articles": [
+            {
+              "id": 46,
+              "order": "208",
+              "text": "<p>L’Enseignement Supérieur est libre. Il est dispensé par l’Université d’Etat d’Haïti qui est autonome et par des Ecoles Supérieures Publiques et des Ecoles Supérieures Privées agréés par l’Etat.</p>"
+            }, {
+              "id": 47,
+              "order": "209",
+              "text": "<p>L’Etat doit financer le fonctionnement et le développement de l’Université d’Haïti et des Ecoles Supérieures publiques. Leur organisation et leur localisation doivent être envisagées dans une perspective de développement régional.</p>"
+            }, {
+              "id": 48,
+              "order": "210",
+              "text": "<p>La création de centres de recherches doit être encouragée.</p>"
+            }, {
+              "id": 49,
+              "order": "211",
+              "text": "<p>Il est créé un organisme public chargé de la régulation et du contrôle de qualité de l’enseignement supérieur et de la recherche scientifique sur tout le territoire. Cet organisme exerce son contrôle sur toutes les institutions publiques et non publiques travaillant dans ces deux domaines. Chaque année, il publie un rapport sur la qualité de la formation et établit une liste des institutions performantes. La loi détermine la dénomination, fixe le mode d’organisation et de fonctionnement de cet Organisme</p>"
+            }, {
+              "id": 50,
+              "order": "211.1",
+              "text": "<p>Les Universités et Ecoles Supérieures Privées ou Publiques dispensent un Enseignement Académique et pratique adapté à l’évolution et aux besoins du développement national.</p>"
+            }, {
+              "id": 51,
+              "order": "212",
+              "text": "<p>Une Loi Organique réglemente la création, la localisation et le fonctionnement des Universités et des Ecoles Supérieures publiques et privées du pays.</p>"
+            }, {
+              "id": 52,
+              "order": "213",
+              "text": "<p>Une Académie haïtienne est instituée en vue de fixer la langue créole et de permettre son développement scientifique et harmonieux.</p>"
+            }, {
+              "id": 53,
+              "order": "213.1",
+              "text": "<p>D’autres académies peuvent être créées.</p>"
+            }, {
+              "id": 54,
+              "order": "214",
+              "text": "<p>Le titre de Membre de l’Académie est purement honorifique.</p>"
+            }, {
+              "id": 55,
+              "order": "214.1",
+              "text": "<p>La loi détermine le mode, l’organisation et le fonctionnement des académies.</p>"
+            }, {
+              "id": 56,
+              "order": "215",
+              "text": "<p>Les richesses archéologiques, historiques, culturelles et folkloriques du Pays de même que les richesses architecturales, témoin de la grandeur de notre passé, font partie du Patrimoine National. En conséquence, les monuments, les ruines, les sites des grands faits d’armes de nos ancêtres, les centres réputés de nos croyances africaines et tous les vestiges du passé sont placées sous la protection de l’Etat.</p>"
+            }, {
+              "id": 57,
+              "order": "216",
+              "text": "<p>La loi détermine pour chaque domaine les conditions spéciales de cette protection.</p>"
+            }
           ]
         }
       ]

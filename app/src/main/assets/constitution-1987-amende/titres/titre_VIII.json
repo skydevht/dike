@@ -8,6 +8,63 @@
         {
           "id": null,
           "articles": [
+            {
+              "id": 1,
+              "order": "234",
+              "text": "<p>L’Administration Publique Haïtienne est l’instrument par lequel l’Etat concrétise ses missions et objectifs. Pour garantir sa rentabilité, elle doit être gérée avec honnêteté et efficacité.</p>"
+            }, {
+              "id": 2,
+              "order": "234.1",
+              "text": "<p>L’Administration Publique Nationale est constituée de l’Administration d’État et de l’Administration des collectivités territoriales.</p>"
+            }, {
+              "id": 3,
+              "order": "235",
+              "text": "<p>Les Fonctionnaires et Employés sont exclusivement au service de l’Etat. Ils ont tenus à l’observation stricte des normes et éthique déterminées par la Loi sur la Fonction Publique.</p>"
+            }, {
+              "id": 4,
+              "order": "236",
+              "text": "<p>La Loi fixe l’organisation des diverses structures de l’Administration et précise leurs conditions de fonctionnement.</p>"
+            }, {
+              "id": 5,
+              "order": "236.1",
+              "text": "<p>La loi réglemente la Fonction Publique sur la base de l’aptitude, du mérite et de la discipline. Elle garantit la sécurité de l’emploi.</p>"
+            }, {
+              "id": 6,
+              "order": "236.2",
+              "text": "<p>La Fonction Publique est une carrière. Aucun fonctionnaire ne peut être engagé que par voie de concours ou autres conditions prescrites par la Constitution et par la loi, ni être révoqué que pour des causes spécifiquement déterminées par la Loi. Cette révocation doit être prononcée dans tous les cas par le Contentieux Administratif.</p>"
+            }, {
+              "id": 7,
+              "order": "237",
+              "text": "<p>Les Fonctionnaires de carrière n’appartiennent pas à un service public déterminé mais à la Fonction Publique qui les met à la disposition des divers Organismes de l’Etat.</p>"
+            }, {
+              "id": 8,
+              "order": "238",
+              "text": "<p>Les Fonctionnaires indiqués par la Loi sont tenus de déclarer l’Etat de leur patrimoine au Greffe du Tribunal Civil dans les trente (30) jours qui suivent leur entrée en fonction. Le Commissaire du Gouvernement doit prendre toutes les mesures qu’il juge nécessaires pour vérifier l’exactitude de la déclaration.</p>"
+            }, {
+              "id": 9,
+              "order": "239",
+              "text": "<p>Les Fonctionnaires et Employés Publics peuvent s’associer pour défendre leurs droits dans les conditions prévues par la Loi.</p>"
+            }, {
+              "id": 10,
+              "order": "240",
+              "text": "<p>Les Fonctions ou Charges Politiques ne donnent pas ouverture à la carrière administrative, notamment les fonctions de Ministre et de Secrétaire d’Etat, d’Officier du Ministère Public, de Délégué et de Vice-Délégué, d’Ambassadeur, de Secrétaire Privé du Président de la République, de Membre de Cabinet de Ministre, de Directeur Général de Département Ministériel ou d’Organisme Autonome, de Membres de Conseil d’Administration.</p>"
+            }, {
+              "id": 11,
+              "order": "241",
+              "text": "<p>La Loi sanctionne les infractions contre le le fisc et l’enrichissement illicite. Les Fonctionnaires qui ont connaissance de tels faits ont pour devoir de les signaler à l’Autorité Compétente.</p>"
+            }, {
+              "id": 12,
+              "order": "242",
+              "text": "<p>L’enrichissement illicite peut être établi par tous les modes de preuves, notamment par présomption de la disproportion marquée entre les moyens du fonctionnaire acquis depuis son entrée en fonction et le montant accumulé du Traitement ou des Emoluments auxquels lui a donné droit la charge occupée.</p>"
+            }, {
+              "id": 13,
+              "order": "243",
+              "text": "<p>Le Fonctionnaire coupable des délits sus-désignés ne peut bénéficier que de la prescription vicennale. Cette prescription ne commence à courir qu’à partir de la cessation de ses fonctions ou des causes qui auraient empêché toute poursuite.</p>"
+            }, {
+              "id": 14,
+              "order": "244",
+              "text": "<p>L’Etat a pour devoir d’éviter les grandes disparités d’appointements dans l’Administration Publique.</p>"
+            }
           ]
         }
       ]

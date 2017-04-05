@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ScrollView
-        android:id="@+id/contentPanel"
+    <tech.skydev.dike.widget.ArticleView
+        android:id="@+id/article_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -16,37 +15,9 @@
         android:layout_marginLeft="136dp"
         android:layout_marginRight="24dp"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
-        android:padding="16dp"
-        android:background="@color/colorAccent"> 
-        
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/article_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="16dp"
-                android:textSize="36sp"
-                android:textColor="@color/colorPrimaryDark"
-                tools:text="Article 1"/>
+        android:layout_marginBottom="24dp">
 
-            <TextView
-                android:id="@+id/article_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16sp"
-                tools:text="Lorem ipsum"/>
-        </LinearLayout>
-
-
-
-    </ScrollView>
+    </tech.skydev.dike.widget.ArticleView>
 
     <include
         android:id="@+id/previous_article"
@@ -54,7 +25,7 @@
         android:layout_width="72dp"
         android:layout_height="72dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/contentPanel"
+        app:layout_constraintRight_toLeftOf="@+id/article_view"
         android:layout_marginTop="24dp"
         app:layout_constraintBottom_toTopOf="@+id/current_article"
         android:layout_marginRight="32dp"
@@ -65,7 +36,7 @@
         layout="@layout/cell_default"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        app:layout_constraintRight_toLeftOf="@+id/contentPanel"
+        app:layout_constraintRight_toLeftOf="@+id/article_view"
         app:layout_constraintTop_toBottomOf="@+id/previous_article"
         app:layout_constraintBottom_toTopOf="@+id/next_article"
         android:layout_marginRight="32dp" />
@@ -76,7 +47,7 @@
         android:layout_width="72dp"
         android:layout_height="72dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/contentPanel"
+        app:layout_constraintRight_toLeftOf="@+id/article_view"
         app:layout_constraintTop_toBottomOf="@+id/current_article"
         android:layout_marginBottom="24dp"
         android:layout_marginRight="32dp" />

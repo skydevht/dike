@@ -8,6 +8,39 @@
         {
           "id": null,
           "articles": [
+            {
+              "id": 1,
+              "order": "282",
+              "text": "<p>Le Pouvoir Législatif, sur la proposition de l’une des deux (2) Chambres ou du Pouvoir Exécutif, a le droit de déclarer qu’il y a lieu d’amender la Constitution, avec motifs à l’appui.</p>"
+            }, {
+              "id": 2,
+              "order": "282.1",
+              "text": "<p>Cette déclaration doit réunir l’adhésion des deux (2/3) de chacune des deux (2) Chambres. Elle ne peut être faite qu’au cours de la dernière Session Ordinaire d’une Législature et est publiée immédiatement sur toute l’étendue du Territoire.</p>"
+            }, {
+              "id": 3,
+              "order": "283",
+              "text": "<p>A la première Session de la Législature suivante, les Chambres se réunissent en Assemblée Nationale et statuent sur l’amendement proposé.</p>"
+            }, {
+              "id": 4,
+              "order": "284",
+              "text": "<p>L’Assemblée Nationale ne peut siéger, ni délibérer sur l’amendement si les deux (2/3) tiers au moins des Membres de chacune des deux (2) Chambres ne sont présents.</p>"
+            }, {
+              "id": 5,
+              "order": "284.1",
+              "text": "<p>Aucune décision de l’Assemblée Nationale ne peut être adoptée qu’à la majorité des deux (2/3) tiers des suffrages exprimés.</p>"
+            }, {
+              "id": 6,
+              "order": "284.2",
+              "text": "<p>L’amendement obtenu ne peut entrer en vigueur qu’après l’installation du prochain Président élu. En aucun cas, le Président sous le gouvernement de qui l’amendement a eu lieu ne peut bénéficier des avantages qui en découlent.</p>"
+            }, {
+              "id": 7,
+              "order": "284.3",
+              "text": "<p>Toute Consultation Populaire tendant à modifier la Constitution par voie de Référendum est formellement interdite.</p>"
+            }, {
+              "id": 8,
+              "order": "284.4",
+              "text": "<p>Aucun amendement à la Constitution ne doit porter atteinte au caractère démocratique et républicain de l’Etat.</p>"
+            }
           ]
         }
       ]

@@ -3,11 +3,457 @@
   "name": "DU CITOYEN, DES DROITS et DEVOIRS FONDAMENTAUX",
   "chapters": [
     {
-      "id": null,
+      "id": "I",
+      "name": "DE LA QUALITÉ DU CITOYEN",
       "sections": [
         {
           "id": null,
           "articles": [
+            {
+              "id": 1,
+              "order": "16",
+              "text": "<p>La jouissance, l’exercice des droits civils et politiques constituent la qualité du citoyen. La suspension et la perte de ces droits sont réglées par la loi.</p>"
+            }, {
+              "id": 2,
+              "order": "16.1",
+              "text": "<p></p>"
+            }, {
+              "id": 3,
+              "order": "16.2",
+              "text": "<p>L’âge de la majorité est fixé à dix-huit (18) ans.</p>"
+            }, {
+              "id": 4,
+              "order": "17",
+              "text": "<p>Les Haïtiens sans distinction de sexe et d’état civil, âgé de dix-huit (18) ans accomplis, peuvent exercer leurs droits civils et politiques s’ils réunissent les autres conditions prévues par la Constitution et par la loi.</p>"
+            }, {
+              "id": 5,
+              "order": "17.1",
+              "text": "<p>Le principe du quota d’au moins trente pour cent (30%) de femmes est reconnu à tous les niveaux de la vie nationale, notamment dans les services publics.</p>"
+            }, {
+              "id": 6,
+              "order": "18",
+              "text": "<p>Les Haïtiens sont égaux devant la loi sous réserve des avantages conférés aux Haïtiens d’origine qui n’ont jamais renoncé à leur nationalité</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "II",
+      "name": "DES DROITS FONDAMENTAUX",
+      "sections": [
+        {
+          "id":"A",
+          "name": "DROIT A LA VIE ET A LA SANTÉ",
+          "articles": [
+            {
+              "id": 7,
+              "order": "19",
+              "text": "<p>L’Etat a l’impérieuse obligation de garantir le droit à la vie, à la santé, au respect de la personne humaine, à tous les citoyens sans distinction, conformément à la Déclaration Universelle des Droits de l’Homme.</p>"
+            }, {
+              "id": 8,
+              "order": "20",
+              "text": "<p>La peine de mort est abolie en toute matière.</p>"
+            }, {
+              "id": 9,
+              "order": "21",
+              "text": "<p>Le crime de haute trahison consiste à porter les armes dans une armée étrangère contre la République, à servir une nation étrangère contre la République, dans le fait par tout fonctionnaire de voler les biens de l’Etat confiés à sa gestion ou toute violation de la Constitution par ceux chargés de la faire respecter</p>."
+            }, {
+              "id": 10,
+              "order": "21.1",
+              "text": "<p>Le crime de haute trahison est puni de la peine des travaux forcés à perpétuité sans commutation de peine.</p>"
+            }, {
+              "id": 11,
+              "order": "22",
+              "text":"<p>L’Etat reconnaît le droit de tout citoyen à un logement décent, à l’éducation, à l’alimentation et à la sécurité sociale.</p>"
+            }, {
+              "id": 12,
+              "order": "23",
+              "text": "<p>L’Etat est astreint à l’obligation d’assurer à tous les citoyens dans toutes les collectivités territoriales les moyens appropriés pour garantir la protection, le maintien et le rétablissement de leur santé par la création d’hôpitaux, centres de santé et de dispensaires.</p>"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "name":"DE LA LIBERTÉ INDIVIDUELLE",
+          "articles": [
+            {
+                "id": 13,
+                "order": "24",
+                "text": "<p>La liberté individuelle est garantie et protégée par l’Etat.</p>"
+            }, {
+              "id": 14,
+              "order": "24.1",
+              "text": "<p>Nul ne peut-être poursuivi, arrêté ou détenu que dans les cas déterminés par la loi et selon les formes qu’elle prescrit.</p>"
+            }, {
+              "id": 15,
+              "order": "24.2",
+              "text": "<p>L’arrestation et la détention, sauf en cas de flagrant délit, n’auront lieu que sur un mandat écrit d’un fonctionnaire légalement compétent.</p>"
+            }, {
+              "id": 16,
+              "order": "24.3",
+              "text": "<p>Pour que ce mandat puisse être exécuté, il faut:</p><p>a)Qu’il exprime formellement en créole et en français le ou les motifs de l’arrestation ou de la détention et la disposition de loi qui punit le fait imputé;</p><p>b)Qu’il soit notifié et qu’il en soit laissé copie au moment de l’exécution à la personne prévenue;</p><p>c)Qu’il soit notifié au prévenu de son droit de se faire assister d’un avocat à toutes les phases de l’instruction de l’affaire jusqu’au jugement définitif;</p><p>d)Sauf le cas de flagrant délit, aucune arrestation sur mandat, aucune perquisition ne peut se faire entre six (6) heures du soir et six (6) heures du matin.</p><p>e)La responsabilité est personnelle. Nul ne peut être arrêté à la place d’un autre.</p>"
+            }, {
+              "id": 17,
+              "order": "25",
+              "text": "<p>Toute rigueur ou contrainte qui n’est pas nécessaire pour appréhender une personne ou la maintenir en détention, toute pression morale ou brutalité physique notamment pendant l’ interrogation sont interdites.</p>"
+            }, {
+              "id": 18,
+              "order": "25.1",
+              "text": "<p>Nul ne peut être interrogé en absence de son avocat ou d’un témoin de son choix.</p>"
+            }, {
+              "id": 19,
+              "order": "26",
+              "text": "<p>Nul ne peut être maintenu en détention s’il n’a comparu dans les quarante-huit (48) heures qui suivent son arrestation, par devant un juge appelé à statuer sur la légalité de l’arrestation et si ce juge n’a confirmé la détention par décision motivée.</p>"
+            }, {
+              "id": 20,
+              "order": "26.1",
+              "text": "<p>En cas de contravention, l’inculpé est déféré par devant le juge de paix qui statue définitivement. En cas de délit ou de crime, le prévenu peut, sans permission préalable et sur simple mémoire, se pourvoir devant le doyen du tribunal de première instance du ressort qui, sur les conclusions du Ministère Public, statue à l’extraordinaire, audience tenante, sans remise ni tour de rôle, toutes affaires cessantes sur la légalité de l’arrestation et de la détention.</p>"
+            }, {
+              "id": 21,
+              "order": "26.2",
+              "text": "<p>Si l’arrestation est jugée illégale, le Juge ordonne la libération immédiate du détenu et cette décision exécutoire sur minute nonobstant appel, pourvoi en cassation ou défense d’exécuter.</p>"
+            }, {
+              "id": 22,
+              "order": "27",
+              "text": "<p>Toutes violations des dispositions relatives à la liberté individuelle sont des actes arbitraires. Les personnes lésées peuvent, sans autorisation préalable, se référer aux tribunaux compétents pour poursuivre les auteurs et les exécuteurs de ces actes arbitraires quelles que soient leurs qualités et à quelque Corps qu’ils appartiennent.</p>"
+            }, {
+              "id": 23,
+              "order": "27.1",
+              "text": "<p>Les fonctionnaires et les employés de l’Etat sont directement responsables selon les lois pénales, civiles et administratives des actes accomplis en violation de droits. Dans ces cas, la responsabilité civile s’étend aussi à l’Etat.</p>"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "name": "DE LA LIBERTÉ D’EXPRESSION",
+          "articles": [
+            {
+              "id": 25,
+              "order": "28",
+              "text": "<p>Tout Haïtien ou toute haïtienne a le droit d’exprimer librement ses opinions, en toute matière par la voie qu’il choisit.</p>"
+            }, {
+              "id": 26,
+              "order": "28.1",
+              "text": "<p>Le journaliste exerce librement sa profession dans le cadre de la loi. Cet exercice ne peut être soumis à aucune autorisation, ni censure sauf en cas de guerre.</p>"
+            }, {
+              "id": 27,
+              "order": "28.2",
+              "text": "<p>Le journaliste ne peut être forcé de révéler ses sources. Il a toutefois pour devoir d’en vérifier l’authenticité et l’exactitude des informations. Il est également tenu de respecter l’éthique professionelle.</p>"
+            }, {
+              "id": 28,
+              "order": "28.3",
+              "text": "<p>Tout délit Presse ainsi que les abus du droit d’expression relèvent du Code Pénal.</p>"
+            }, {
+              "id": 29,
+              "order": "29",
+              "text": "<p>Le droit de pétition est reconnu. Il est exercé personnellement par un, une ou plusieurs citoyens mais jamais au nom d’un Corps.</p>"
+            }, {
+              "id": 30,
+              "order": "29,1",
+              "text": "<p></p>"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "name": "DE LA LIBERTÉ DE CONSCIENCE",
+          "articles": [
+            {
+              "id": 31,
+              "order": "30",
+              "text": "<p>Toutes les religions et tous les cultes sont libres. Toute personne a le droit de professer sa religion et son culte, pourvu que l’exercice de ce droit ne trouble pas l’ordre et la paix publics.</p>"
+            }, {
+              "id": 32,
+              "order": "30.1",
+              "text": "<p>Nul ne peut être contraint à faire partie d’une association ou à suivre un enseignement religieux contraire à ses convictions.</p>"
+            }, {
+              "id": 33,
+              "order": "30.2",
+              "text": "<p>La loi établit les conditions de reconnaissance et de fonctionnement des religions et des cultes.</p>"
+            }
+          ]
+        },
+        {
+          "id": "E",
+          "name": "LIBERTÉ DE RÉUNION ET D’ASSOCIATION",
+          "articles": [
+            {
+              "id": 34,
+              "order": "31",
+              "text": "<p>La liberté d’association et de réunion sans armes à des fins politiques, économiques, sociales, culturelles ou toutes autres fins pacifiques est garantie.</p>"
+            }, {
+              "id": 35,
+              "order": "31.1",
+              "text": "<p>Les partis et groupements politiques concourent à l’expression du suffrage. Ils se forment et exercent leur activité librement. Ils doivent respecter les principes de la souveraineté nationale et de la démocratie. La loi détermine leurs conditions de reconnaissance et de fonctionnement, les avantages et privilèges qui leur sont réservés.</p>"
+            }, {
+              "id": 36,
+              "order": "31.1.1",
+              "text": "<p>Toute loi relative aux Partis politiques doit réserver dans ses structures et dans ses mécanismes de fonctionnement un traitement en conformité avec le principe du quota d’au moins trente pour cent (30%) de femmes exprimé à l’article 17.1.</p>"
+            }, {
+              "id": 37,
+              "order": "31.2",
+              "text": "<p>Les réunions sur la voie publique sont sujettes à notification préalable aux autorités de police.</p>"
+            }, {
+              "id": 38,
+              "order": "31.3",
+              "text": "<p>Nul ne peut être contraint de s’affilier à une association, quelqu’en soit le caractère.</p>"
+            }
+          ]
+        },
+        {
+          "id": "F",
+          "name": "DE L’EDUCATION ET DE L’ENSEIGNEMENT",
+          "articles": [
+            {
+              "id":39,
+              "order": "32",
+              "text": "<p>L’État garantit le droit à l’éducation. L’enseignement est libre à tous les degrés. Cette liberté s’exerce sous le contrôle de l’État.</p>"
+            }, {
+              "id": 40,
+              "order": "32.1",
+              "text": "<p>L’éducation est une charge de l’État et des collectivités territoriales. Ils doivent mettre l’école gratuitement à la portée de tous, veiller au niveau de formation des enseignants des secteurs public et non public.</p>"
+            }, {
+              "id": 41,
+              "order": "32.2",
+              "text": "La première charge de l’Etat et des collectivités territoriales est la scolarisation massive, seule capable de permettre le développement du pays. L’Etat encourage et facilite l’initiative privée en ce domaine."
+            }, {
+              "id": 42,
+              "order": "32.3",
+              "text": "<p>L’enseignement fondamental est obligatoire. Les fournitures classiques et le matériel didactique seront mis gratuitement par l’État à la disposition des élèves au niveau de l’enseignement fondamental.</p>"
+            }, {
+              "id": 43,
+              "order": "32.4",
+              "text": "<p>L’enseignement agricole, professionnel et technique est pris en charge par l’État et les collectivités territoriales.</p>"
+            }, {
+              "id": 44,
+              "order": "32.5",
+              "text": "<p>La formation préscolaire et maternelle sera prise en charge par l’État et les collectivités territoriales.</p>"
+            }, {
+              "id": 45,
+              "order": "32.6",
+              "text": "<p>L’accès aux études supérieures est ouvert, en pleine égalité, à tous.</p>"
+            }, {
+              "id": 46,
+              "order": "32.7",
+              "text": "<p>L’État doit veiller à ce que chaque collectivité territoriale soit dotée d’établissements adaptés aux besoins de son développement.</p>"
+            }, {
+              "id": 47,
+              "order": "32.8",
+              "text": "<p>L’État garantit aux personnes à besoins spéciaux la protection, l’éducation et tout autre moyen nécessaire à leur plein épanouissement et à leur intégration ou réintégration dans la société.</p>"
+            }, {
+              "id": 48,
+              "order": "32.9",
+              "text": "<p>L’État et les collectivités territoriales ont pour devoir de prendre toutes les dispositions nécessaires en vue d’intensifier la campagne d’alphabétisation des masses. Ils encouragent toutes les initiatives privées tendant à cette fin.</p>"
+            }, {
+              "id": 49,
+              "order": "32.10",
+              "text": "<p>L’enseignement a droit à un salaire de base équitable.</p>"
+            }, {
+              "id": 50,
+              "order": "33",
+              "text": "<p>L’enseignement est libre à tous les degrés. Cette liberté s’exerce sous le contrôle de l’Etat.</p>"
+            }, {
+              "id": 51,
+              "order": "34",
+              "text": "<p>Hormis les cas de flagrant délit, l’enceinte des établissements d’enseignement est inviolable. Aucune force de l’ordre ne peut y pénétrer qu’en accord avec la Direction desdits établissements.</p>"
+            }, {
+              "id": 52,
+              "order": "34.1",
+              "text": "<p>Cette disposition ne s’applique pas quand un établissement scolaire est utilisé à d’autre fins.</p>"
+            }
+          ]
+        },
+        {
+          "id": "G",
+          "name": "DE LA LIBERTÉ DU TRAVAIL",
+          "articles": [
+            {
+              "id": 53,
+              "order": "35",
+              "text": "<p>La liberté du travail est garantie. Tout citoyen a pour obligation de se consacrer à un travail de son choix en vue de subvenir à ses besoins et à ceux de sa famille, de cooperer avec l’Etat à l’établissement d’un système de sécurité sociale.</p>"
+            }, {
+              "id": 54,
+              "order": "35.1",
+              "text": "<p>Tout employé d’une institution privée ou publique a droit à un juste salaire, au repos, au congé annuel paye et au bonus.</p>"
+            }, {
+              "id": 55,
+              "order": "35.2",
+              "text": "<p>L’Etat garantit au travailleur, l’égalité des conditions de travail et de salaire quel que soit son sexe, ses croyances, ses opinions et son statut matrimonial.</p>"
+            }, {
+              "id": 56,
+              "order": "35.3",
+              "text": "<p>La liberté syndicale est garantie. Tout travailleur des secteurs privé et public peut adhérer au Syndicat de ses activités professionnelles pour la défense exclusivement de ses intérêts de travail.</p>"
+            }, {
+              "id": 57,
+              "order": "35.4",
+              "text": "<p>Le syndicat est essentiellement apolitique, à but non lucratif et non confessionnel. Nul ne peut être contraint d’y adhérer.</p>"
+            }, {
+              "id": 58,
+              "order": "35.5",
+              "text": "<p>Le droit de grève est reconnu dans les limites déterminée par la loi.</p>"
+            }, {
+              "id": 59,
+              "order": "35.6",
+              "text": "<p>La loi la limite d’âge pour le travail salarié. Des Lois Spéciales règlementent le travail des enfants mineurs et des gens de maison.</p>"
+            }
+          ]
+        },
+        {
+          "id": "H",
+          "name": "DE LA PROPRIÉTÉ",
+          "articles": [
+            {
+              "id": 60,
+              "order": "36",
+              "text": "<p>La propriété privée est reconnue et garantie. La loi en détermine les modalités d’acquisition, de jouissance ainsi que les limites.</p>"
+            }, {
+              "id": 61,
+              "order": "36.1",
+              "text": "<p>L’expropriation pour cause d’utilité publique peut avoir lieu moyennant le paiement ou la consignation ordonnée par justice aux ordres de qui de droit, d’une juste et préalable indemnité fixée à dire d’expert.</p><p>Si le projet initial est abandonné, l’expropriation est annulée et l’immeuble ne pouvant être l’objet d’aucune autre spéculation, doit être restitué à son propriétaire originaire, sans aucun remboursement pour le petit propriétaire. La mesure d’expropriation est effective à partir de la mise en oeuvre du projet.</p>"
+            }, {
+              "id": 62,
+              "order": "36.2",
+              "text": "<p>La Nationalisation et la confiscation des biens, meubles et immeubles pour causes politiques sont interdites.</p><p>Nul ne peut être privé de son droit légitime de propriété qu’en vertu d’un jugement rendu par un Tribunal de droit commun passé en force de chose souverainement jugée, sauf dans le cadre d’une réforme agraire.</p>"
+            }, {
+              "id": 63,
+              "order": "36.3",
+              "text": "<p>La propriété entraîne également des obligations. Il n’en peut être fait usage contraire à l’intérêt général.</p>"
+            }, {
+              "id": 64,
+              "order": "36.4",
+              "text": "<p>Le propriétaire foncier doit cultiver, exploiter le sol et le protéger, notamment contre l’érosion. La sanction de cette obligation est prévue par la loi.</p>"
+            }, {
+              "id": 65,
+              "order": "36.5",
+              "text": "<p>Le droit de propriété ne s’étend pas au littoral, aux sources, rivières, cours d’eau, mines et carrières. Ils font partie du domaine public de l’Etat.</p>"
+            }, {
+              "id": 66,
+              "order": "36.6",
+              "text": "<p>La loi fixe les règles qui conditionnent la liberté de prospection et le droit d’exploter les mines, minières et carrières du sous-sol, en assurant au propriétaire de la surface, aux concessionnaires et à l’Etat haïtien une participation équitable au profit que procure la mise en valeur de ces ressources naturelles.</p>"
+            }, {
+              "id": 67,
+              "order": "37",
+              "text": "<p>La loi fixe les conditions de morcellement et de remembrement de la terre en fonction du plan d’aménagement du territoire et du bien -être des communautés concernées, dans le cadre d’une réforme agraire.</p>"
+            }, {
+              "id": 68,
+              "order": "38",
+              "text": "<p>La propriété scientifique, littéraire et artistique est protégée par la loi.</p>"
+            }, {
+              "id": 69,
+              "order": "39",
+              "text": "<p>Les habitants des sections communales ont un droit de préemption pour l’exploitation des terres du domaine privé de l’Etat situées dans leur localité.</p>"
+            }
+          ]
+        },
+        {
+          "id": "I",
+          "name": "DROIT A L’INFORMATION",
+          "articles": [
+            {
+              "id": 70,
+              "order": "40",
+              "text": "<p>Obligation est faite à l’Etat de donner publicité par voie de presse parlée, écrite et télévisée, en langues créole et française aux lois, arrêtés, décrets, accords internationaux, traités, conventions, à tout ce qui touche la vie nationale, exception faite pour les informations relevant de la sécurité nationale.</p>"
+            }
+          ]
+        },
+        {
+          "id": "J",
+          "name": "DROIT A LA SÉCURITÉ",
+          "articles": [
+            {
+              "id": 71,
+              "order": "41",
+              "text": "<p>Aucun individu de nationalité haïtienne ne peut être déporté ou forcé de laisser le territoire national pour quelque motif que ce soit.</p><p>Nul ne peut être privé pour des motifs politiques de sa capacité juridique et de sa nationalité.</p>"
+            }, {
+              "id": 72,
+              "order": "41.1",
+              "text": "<p>Aucun haítien n’a besoin de visa pour laisser le pays ou pour y revenir.</p>"
+            }, {
+              "id": 73,
+              "order": "42",
+              "text": "<p>Aucun citoyen, civil ou militaire ne peut être distrait des juges que la constitution et les lois lui assignent.</p>"
+            }, {
+              "id": 74,
+              "order": "42.1",
+              "text": "<p>Le militaire accusé de crime de haute trahidon envers la patrie est passible du tribunal de droit commun.</p>"
+            }, {
+              "id": 75,
+              "order": "42.2",
+              "text": "<p>La justice militaire n’a juridiction que:</p><p>a)Dans les cas de violation des règlements du Manuel de justice militaire par des militaires;</p><p>b)Dans les cas de conflits entre les membres des forces armées;</p><p>c)En cas de guerre.</p>"
+            }, {
+              "id": 76,
+              "order": "42.3",
+              "text": "<p>Les cas de conflit entre civils et militaires, les abus, violences et crimes perpétrés contre un civil par un militaire dans l’exercice de ses fonctions, relèvent exclusivement des tribunaux de droit commun.</p>"
+            }, {
+              "id": 77,
+              "order": "43",
+              "text": "<p>Aucune visite domiciliaire, aucune saisie de papier ne peut avoir lieu qu’en vertu de la loi et dans les formes qu’elle prescrit.</p>"
+            }, {
+              "id": 78,
+              "order": "44",
+              "text": "<p>Les déténus provisoires attendant d’être jugés doivent être séparés de ceux qui purgent une peine.</p>"
+            }, {
+              "id": 79,
+              "order": "44.1",
+              "text": "<p>Le régime des prisons doit répondre aux normes attachées au respect de la dignité humaine selon la loi sur la matière.</p>"
+            }, {
+              "id": 80,
+              "order": "45",
+              "text": "<p>Nulle peine ne peut être établie que par la loi, ni appliquée que dans les cas que celle-ci détermine.</p>"
+            }, {
+              "id": 81,
+              "order": "46",
+              "text": "<p>Nul ne peut être obligé, en matière criminelle, correctionnelle ou de simple police, à témoigner contre lui-même ou ses parents jusqu’au quatrième degré de consanguinité ou deuxième degré d’alliance.</p>"
+            }, {
+              "id": 82,
+              "order": "47",
+              "text": "<p>Nul ne peut être contraint à prêter serment que dans le cas et dans les formes prévus par la loi.</p>"
+            }, {
+              "id": 83,
+              "order": "48",
+              "text": "<p>L’Etat veillera à ce qu’une caisse de pension civile de retraite soit établie dans les secteurs privé et public. Elle sera alimentée par les contributions des employeurs et employés suivant les critères et modalités établis par la loi. L’allocation de la pension est un droit et non une faveur.</p>"
+            }, {
+              "id": 84,
+              "order": "49",
+              "text": "<p>La liberté, le secret de la correspondance et de toutes les autres de communication sont inviolables. Leur limitation ne peut se produire que par un acte motivé de l’autorité judiciaire, selon les garanties fixée par la loi.</p>"
+            }, {
+              "id": 85,
+              "order": "50",
+              "text": "<p>Dans le cadre de la constitution et de la loi, le jury est établi en matière criminelle pour les crimes de sang et en matière de délits politiques.</p>"
+            }, {
+              "id": 86,
+              "order": "51",
+              "text": "<p>La loi ne peut avoir d’effet rétroactif, sauf en matière pénale quand elle est favorable à l’accusé.</p>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "III",
+      "name": "DES DEVOIRS DU CITOYEN",
+      "sections": [
+        {
+          "id": null,
+          "articles": [
+            {
+              "id": 87,
+              "order": "52",
+              "text": "<p>A la qualité de citoyen se rattache le devoir civique. Tout droit est contrebalancé par le devoir correspondant.</p>"
+            }, {
+              "id": 88,
+              "order": "52.1",
+              "text": "<p>Le devoir civique est l’ensemble des obligations du citoyen dans l’ordre moral, politique, social et économique vis-à-vis de l’Etat et de la patrie. Ces obligations sont:</p><p>1)respecter la constitution et l’emblème national;</p><p>2)respecter les lois;</p><p>3)voter aux élections sans contrainte;</p><p>4)payer ses taxes;</p><p>5)servir de juré;</p><p>6)défendre le pays en cas de guerre;</p><p>7)s’instruire et se perfectionner;</p><p>8)respecter et protéger l’environnement;</p><p>9)respecter scrupuleusement les deniers et biens de l’Etat;</p><p>10)respecter le bien d’autrui;</p><p>11)oeuvrer pour le maintien de la paix;</p><p>12)fournir assistance aux personnes en danger;</p><p>13)respecter les droits et la liberté d’autrui.</p>"
+            }, {
+              "id": 89,
+              "order": "52.2",
+              "text": "<p>La dérogation à ces prescriptions est sanctionnée par la loi.</p>"
+            }, {
+              "id": 90,
+              "order": "52.3",
+              "text": "<p>Il est établi un service civique mixte obligatoire dont les conditions de fonctionnement sont établies par la loi.</p>"
+            }
           ]
         }
       ]
