@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 import tech.skydev.dike.Injection
 import tech.skydev.dike.R
 import tech.skydev.dike.ui.article.ArticleFragment
@@ -24,11 +26,17 @@ class MainActivity : AppCompatActivity(), Navigation {
     private lateinit var currentFragmentTag: String
     private var FRAG_TAG_KEY: String = "frag-tag"
 
+    lateinit var mAdView: AdView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
+
+        mAdView = findViewById(R.id.adView) as AdView
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
 
         val bar: ActionBar = supportActionBar!!
         bar.title = "Constitution Haitienne"

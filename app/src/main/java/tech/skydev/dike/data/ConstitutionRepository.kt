@@ -18,6 +18,16 @@ import java.lang.reflect.Type
 
 class ConstitutionRepository(var context: Context) {
 
+    var titres : HashMap<String, Titre> = HashMap()
+
+    fun getTitreFromCache(titreId: String): Titre? {
+        return titres[titreId]
+    }
+
+    fun addTitreToCache(titre: Titre) {
+        titres.put(titre.id!!, titre)
+    }
+
 
     var gson: Gson = GsonBuilder()
             .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
@@ -56,31 +66,59 @@ class ConstitutionRepository(var context: Context) {
     }
 
     fun getTitre(id: String, callback: DataCallback<Titre>) {
-        val filename: String = Constant.CONST_1987_A_DIR + "/titres/titre_" + id + ".json"
+        val titre = getTitreFromCache(id)
+        if (titre == null) {
+            val filename: String = Constant.CONST_1987_A_DIR + "/titres/titre_" + id + ".json"
 
-        val task: AsyncTask<Void, Void, Titre?> = object : AsyncTask <Void, Void, Titre?>() {
-            override fun doInBackground(vararg params: Void?): Titre? {
-                try {
-                    val sectionGson: String = FileUtil.loadTextFileFromAssets(context, filename);
-                    val titre = gson.fromJson(sectionGson, Titre::class.java)
-                    return titre
+            val task: AsyncTask<Void, Void, Titre?> = object : AsyncTask <Void, Void, Titre?>() {
+                override fun doInBackground(vararg params: Void?): Titre? {
+                    try {
+                        val sectionGson: String = FileUtil.loadTextFileFromAssets(context, filename);
+                        val titre = gson.fromJson(sectionGson, Titre::class.java)
+                        return titre
 
-                } catch(e: Exception) {
-                    callback.onError(e)
+                    } catch(e: Exception) {
+                        callback.onError(e)
+                    }
+                    return null;
                 }
-                return null;
-            }
 
-            override fun onPostExecute(result: Titre?) {
-                if (result == null) {
+                override fun onPostExecute(result: Titre?) {
+                    if (result == null) {
+                        callback.onError(DataNotFoundException())
+                    } else {
+                        addTitreToCache(result)
+                        callback.onSuccess(result)
+                    }
+                }
+            }
+            task.execute()
+        } else {
+            callback.onSuccess(titre)
+        }
+
+
+    }
+
+    fun getArticles(titreId: String, callback: DataCallback<ArrayList<Article>>) {
+        getTitre(titreId, object : DataCallback<Titre> {
+
+            override fun onSuccess(result: Titre) {
+                val resultArticles = result.chapters!!.flatMap { it.sections!! }.flatMap { it.articles!! } as ArrayList
+                if (resultArticles == null) {
                     callback.onError(DataNotFoundException())
                 } else {
-                    callback.onSuccess(result)
+                    callback.onSuccess(resultArticles)
                 }
             }
-        }
-        task.execute()
+
+            override fun onError(t: Throwable) {
+                callback.onError(t)
+            }
+
+        })
     }
+
 
     fun getArticle(titreId: String, articleId: Int, callback: DataCallback<Array<Article?>>) {
         getTitre(titreId, object : DataCallback<Titre> {

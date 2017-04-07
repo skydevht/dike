@@ -11,8 +11,10 @@ interface ArticleContract {
     interface View: BaseView<Presenter> {
         fun showArticle(article: Article)
         fun updateNavigation(articles: Array<Article?>)
+        fun setArticles(articles: ArrayList<Article>)
     }
     interface Presenter: BasePresenter {
         fun loadArticle(titleId: String, articleId: Int)
+        fun loadArticles(titleId: String)
     }
 }

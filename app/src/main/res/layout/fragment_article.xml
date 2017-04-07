@@ -33,7 +33,8 @@
         android:layout_marginLeft="48dp"
         android:layout_marginTop="32dp"
         app:layout_constraintRight_toLeftOf="@+id/current_article"
-        app:layout_constraintHorizontal_chainStyle="spread_inside" />
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        android:visibility="gone"/>
 
     <include
         android:id="@+id/current_article"
@@ -44,7 +45,8 @@
         app:layout_constraintTop_toBottomOf="@+id/article_view"
         app:layout_constraintLeft_toRightOf="@+id/previous_article"
         app:layout_constraintRight_toLeftOf="@+id/next_article"
-        android:layout_marginRight="0dp" />
+        android:layout_marginRight="0dp"
+        android:visibility="gone"/>
 
     <include
         android:id="@+id/next_article"
@@ -55,7 +57,8 @@
         app:layout_constraintTop_toBottomOf="@+id/article_view"
         android:layout_marginTop="32dp"
         android:layout_marginRight="48dp"
-        app:layout_constraintLeft_toRightOf="@+id/current_article" />
+        app:layout_constraintLeft_toRightOf="@+id/current_article"
+        android:visibility="gone" />
 
 
 </android.support.constraint.ConstraintLayout>

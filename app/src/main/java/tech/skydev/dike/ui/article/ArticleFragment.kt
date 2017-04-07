@@ -23,6 +23,8 @@ class ArticleFragment() : BaseFragment(), ArticleContract.View {
     private var mCurrentArticleView: View? = null
     private var mNextArticleView: View? = null
 
+    private var mArticles: ArrayList<Article>? = null
+
     private var mArticleId: Int = -1
 
     lateinit private var mTitleId: String
@@ -41,6 +43,7 @@ class ArticleFragment() : BaseFragment(), ArticleContract.View {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater!!.inflate(R.layout.fragment_article, container, false)
         mArticleView = rootView.findViewById(R.id.article_view) as ArticleView
+        mArticleView?.swipeListener = ArticleViewListener()
         mPreviousArticleView = rootView.findViewById(R.id.previous_article)
         mCurrentArticleView = rootView.findViewById(R.id.current_article)
         mNextArticleView = rootView.findViewById(R.id.next_article)
@@ -49,7 +52,23 @@ class ArticleFragment() : BaseFragment(), ArticleContract.View {
 
     override fun onStart() {
         super.onStart()
-        mPresenter.loadArticle(mTitleId, mArticleId)
+        mPresenter.loadArticles(mTitleId)
+    }
+
+    override fun setArticles(articles: ArrayList<Article>) {
+        mArticles = articles
+        showCurrentArticle()
+    }
+
+    fun showCurrentArticle() {
+        if (mArticles != null) {
+            for (article in mArticles!!) {
+                if (article.id == mArticleId) {
+                    mArticleView?.article = article
+                    break
+                }
+            }
+        }
     }
 
     lateinit var mPresenter: ArticleContract.Presenter
@@ -138,4 +157,21 @@ class ArticleFragment() : BaseFragment(), ArticleContract.View {
         }
     }
 
+    inner class ArticleViewListener: ArticleView.OnSwipeListener {
+        override fun onSwipeLeft() {
+            if (mArticles != null) {
+                mArticleId++
+                if (mArticleId >= mArticles!!.size) mArticleId = mArticles!!.size
+                showCurrentArticle()
+            }
+        }
+
+        override fun onSwipeRight() {
+            if (mArticles != null) {
+                mArticleId--
+                if (mArticleId >= mArticles!!.size) mArticleId = mArticles!!.size
+                showCurrentArticle()
+            }
+        }
+    }
 }

@@ -1,6 +1,7 @@
 package tech.skydev.dike
 
 import android.app.Application
+import com.google.android.gms.ads.MobileAds
 
 import timber.log.Timber
 
@@ -15,5 +16,9 @@ class App : Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
+
+        MobileAds.initialize(this, "pub-2731520567117800");
+
+        Injection.provideConstitutionRepository(this)
     }
 }

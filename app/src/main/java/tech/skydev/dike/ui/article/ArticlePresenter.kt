@@ -30,4 +30,17 @@ class ArticlePresenter(val constitutionRepository: ConstitutionRepository, val a
 
         })
     }
+
+    override fun loadArticles(titleId: String) {
+        constitutionRepository.getArticles(titleId, object : DataCallback<ArrayList<Article>> {
+            override fun onSuccess(result: ArrayList<Article>) {
+                articleView.setArticles(result)
+            }
+
+            override fun onError(t: Throwable) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+        })
+    }
 }
