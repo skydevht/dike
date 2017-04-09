@@ -14,8 +14,8 @@ import tech.skydev.dike.data.model.Titre
 
 abstract class TitleAdapter(internal var models: ArrayList<Titre>) : RecyclerView.Adapter<TitleAdapter.ViewHolder>() {
 
-    private val PREAMBULE_VIEW_TYPE = 0
-    private val NORMAL_VIEW_TYPE = 1
+    val PREAMBULE_VIEW_TYPE = 0
+    val NORMAL_VIEW_TYPE = 1
 
     fun replaceItems(models: ArrayList<Titre>) {
         this.models = models
@@ -42,9 +42,7 @@ abstract class TitleAdapter(internal var models: ArrayList<Titre>) : RecyclerVie
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindToModel(getItem(position), position)
-        if (position > 0) {
-            holder.itemView.setOnClickListener { onCellClick(getItem(position), position) }
-        }
+        holder.itemView.setOnClickListener { onCellClick(getItem(position), position) }
     }
 
     abstract fun onCellClick(model: Titre, pos: Int)

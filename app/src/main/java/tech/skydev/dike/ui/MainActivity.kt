@@ -2,7 +2,6 @@ package tech.skydev.dike.ui
 
 import android.os.Bundle
 import android.support.v7.app.ActionBar
-import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
@@ -18,6 +17,7 @@ import tech.skydev.dike.ui.title.TitlesPresenter
 import tech.skydev.dike.ui.titledetails.TitleDetailsFragment
 import tech.skydev.dike.ui.titledetails.TitleDetailsPresenter
 import tech.skydev.dike.util.ActivityUtils
+import tech.skydev.dike.widget.AboutDialog
 
 class MainActivity : AppCompatActivity(), Navigation {
 
@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity(), Navigation {
     private var mTitlesPresenter: TitlesPresenter? = null
     private lateinit var currentFragmentTag: String
     private var FRAG_TAG_KEY: String = "frag-tag"
+    val aboutDialog = AboutDialog()
 
     lateinit var mAdView: AdView
 
@@ -114,12 +115,7 @@ class MainActivity : AppCompatActivity(), Navigation {
         if (id == android.R.id.home) {
             onBackPressed()
         } else if (id == R.id.action_about) {
-            val alert = AlertDialog.Builder(this)
-                    .setTitle(R.string.action_about)
-                    .setView(layoutInflater.inflate(R.layout.dialog_about, null))
-                    .setPositiveButton("Fermer", null)
-                    .create()
-            alert.show()
+            aboutDialog.show(supportFragmentManager, "about-dialog")
         }
 
         return super.onOptionsItemSelected(item)

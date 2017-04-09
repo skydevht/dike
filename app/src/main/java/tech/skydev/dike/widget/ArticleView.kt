@@ -30,7 +30,8 @@ class ArticleView : FrameLayout, GestureDetector.OnGestureListener {
     val gestureScanner = GestureDetectorCompat(context, this)
     var article: Article? = null
         set(value) {
-            mArticleNameTV.text = "Article ${value?.order}"
+            val name = if (value?.order == "0") "Préambule" else "Article ${value?.order}"
+            mArticleNameTV.text = name
             mArticleTextTV.text = Html.fromHtml(value?.text)
         }
 
@@ -57,13 +58,13 @@ class ArticleView : FrameLayout, GestureDetector.OnGestureListener {
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         Timber.d("Touched")
-        if (gestureScanner.onTouchEvent(event)) return true
+        //if (gestureScanner.onTouchEvent(event)) return true
         return super.onTouchEvent(event)
     }
 
     override fun onInterceptTouchEvent(event: MotionEvent?): Boolean {
         Timber.d("Touched (intercepted)")
-        if (gestureScanner.onTouchEvent(event)) return true
+        //if (gestureScanner.onTouchEvent(event)) return true
         return super.onInterceptTouchEvent(event)
     }
 

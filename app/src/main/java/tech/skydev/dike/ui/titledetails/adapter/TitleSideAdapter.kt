@@ -14,8 +14,8 @@ import tech.skydev.dike.data.model.Titre
 
 abstract class TitleSideAdapter(internal var models: ArrayList<Titre>) : RecyclerView.Adapter<TitleSideAdapter.ViewHolder>() {
 
-    private val PREAMBULE_VIEW_TYPE = 0
-    private val NORMAL_VIEW_TYPE = 1
+    val PREAMBULE_VIEW_TYPE = 0
+    val NORMAL_VIEW_TYPE = 1
 
     open var selectedId: String? = null
 
@@ -37,9 +37,7 @@ abstract class TitleSideAdapter(internal var models: ArrayList<Titre>) : Recycle
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindToModel(getItem(position), position)
-        if (position > 0) {
-            holder.itemView.setOnClickListener { onCellClick(getItem(position), position) }
-        }
+        holder.itemView.setOnClickListener { onCellClick(getItem(position), position) }
     }
 
     abstract fun onCellClick(model: Titre, pos: Int)
@@ -68,7 +66,7 @@ abstract class TitleSideAdapter(internal var models: ArrayList<Titre>) : Recycle
                 mTextView.setText(model.id)
             }
 
-            if (this@TitleSideAdapter.selectedId!! == model.id){
+            if (this@TitleSideAdapter.selectedId!! == model.id) {
                 itemView.setBackgroundColor(itemView.context.resources.getColor(R.color.colorAccent))
                 mTextView.setTextColor(itemView.context.resources.getColor((R.color.colorPrimaryDark)))
             } else {

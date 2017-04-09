@@ -30,7 +30,13 @@ class TitleFragment : BaseFragment(), TitlesContract.View {
         mAdapter = object: TitleAdapter(ArrayList(0)) {
             override fun onCellClick(model: Titre, pos: Int) {
                 val navigation: Navigation = activity as MainActivity
-                navigation.showTitleScreen(model.id!!)
+                if (getItemViewType(pos) == PREAMBULE_VIEW_TYPE) {
+                    navigation.showArticle(model.id!!, 1)
+                }
+                else {
+
+                    navigation.showTitleScreen(model.id!!)
+                }
             }
 
         }

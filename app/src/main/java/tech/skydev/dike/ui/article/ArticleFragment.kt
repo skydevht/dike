@@ -1,7 +1,7 @@
 package tech.skydev.dike.ui.article
 
-import android.animation.Animator
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +9,6 @@ import android.widget.TextView
 import tech.skydev.dike.R
 import tech.skydev.dike.base.BaseFragment
 import tech.skydev.dike.data.model.Article
-import tech.skydev.dike.util.ViewAnimationUtils
 import tech.skydev.dike.widget.ArticleView
 
 /**
@@ -45,8 +44,22 @@ class ArticleFragment() : BaseFragment(), ArticleContract.View {
         mArticleView = rootView.findViewById(R.id.article_view) as ArticleView
         mArticleView?.swipeListener = ArticleViewListener()
         mPreviousArticleView = rootView.findViewById(R.id.previous_article)
+        mPreviousArticleView?.setOnClickListener {
+            if (mArticles != null) {
+                mArticleId--
+                if (mArticleId <= 0) mArticleId = 1
+                showCurrentArticle()
+            }
+        }
         mCurrentArticleView = rootView.findViewById(R.id.current_article)
         mNextArticleView = rootView.findViewById(R.id.next_article)
+        mNextArticleView?.setOnClickListener {
+            if (mArticles != null) {
+                mArticleId++
+                if (mArticleId >= mArticles!!.size) mArticleId = mArticles!!.size
+                showCurrentArticle()
+            }
+        }
         return rootView
     }
 
@@ -61,14 +74,23 @@ class ArticleFragment() : BaseFragment(), ArticleContract.View {
     }
 
     fun showCurrentArticle() {
+        val articles: Array<Article?> = arrayOfNulls(3)
         if (mArticles != null) {
             for (article in mArticles!!) {
                 if (article.id == mArticleId) {
                     mArticleView?.article = article
-                    break
+                    val name = if (article.order == "0") "Préambule" else "Article ${article.order}"
+                    (activity as AppCompatActivity).supportActionBar?.title = name
+                    (activity as AppCompatActivity).supportActionBar?.subtitle = null
+                    articles[1] = article
+                } else if (article.id == mArticleId - 1) {
+                    articles[0] = article
+                } else if (article.id == mArticleId + 1) {
+                    articles[2] = article
                 }
             }
         }
+        updateNavigation(articles)
     }
 
     lateinit var mPresenter: ArticleContract.Presenter
@@ -96,41 +118,14 @@ class ArticleFragment() : BaseFragment(), ArticleContract.View {
             if (article == null) {
                 // current article is first or last
                 view.visibility = View.INVISIBLE
-                view.isClickable = false
             } else {
                 view.visibility = View.VISIBLE // restore view visibility
                 val textView = view.findViewById(R.id.name) as TextView
-
-                val darken = (i == 1)
-                if (mClickeIndicatorId == -1 && i == 1) {
-                    ViewAnimationUtils.changeCellColor(view, !darken)
-                }
-                if (mClickeIndicatorId == i || (i == 1 && mClickeIndicatorId != -1)) {
-                    // animate only the clicked object
-                    ViewAnimationUtils.changeCellColor(view, darken, object : Animator.AnimatorListener {
-                        override fun onAnimationRepeat(animation: Animator?) {}
-
-                        override fun onAnimationEnd(animation: Animator?) {
-                            ViewAnimationUtils.changeCellColor(view, !darken)
-                            mClickeIndicatorId = -1
-                            textView.text = article.order
-                            view.setOnClickListener {
-                                mClickeIndicatorId = i
-                                mPresenter.loadArticle(mTitleId, article.id)
-                            }
-
-                        }
-
-                        override fun onAnimationCancel(animation: Animator?) {}
-
-                        override fun onAnimationStart(animation: Animator?) {}
-                    })
-                } else {
-                    textView.text = article.order
-                    view.setOnClickListener {
-                        mClickeIndicatorId = i
-                        mPresenter.loadArticle(mTitleId, article.id)
-                    }
+                textView.text = article.order
+                if (i == 1) {
+                    // current View
+                    view.setBackgroundColor(context.resources.getColor(R.color.colorAccent))
+                    textView.setTextColor(context.resources.getColor(R.color.colorPrimaryDark))
                 }
             }
         }
@@ -157,7 +152,7 @@ class ArticleFragment() : BaseFragment(), ArticleContract.View {
         }
     }
 
-    inner class ArticleViewListener: ArticleView.OnSwipeListener {
+    inner class ArticleViewListener : ArticleView.OnSwipeListener {
         override fun onSwipeLeft() {
             if (mArticles != null) {
                 mArticleId++
@@ -169,7 +164,7 @@ class ArticleFragment() : BaseFragment(), ArticleContract.View {
         override fun onSwipeRight() {
             if (mArticles != null) {
                 mArticleId--
-                if (mArticleId >= mArticles!!.size) mArticleId = mArticles!!.size
+                if (mArticleId <= 0) mArticleId = 1
                 showCurrentArticle()
             }
         }

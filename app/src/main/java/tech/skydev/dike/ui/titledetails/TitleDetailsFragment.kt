@@ -29,7 +29,13 @@ class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
     var mAdapter: TitleDetailsAdapter = TitleDetailsAdapter(null)
     var mSideAdapter: TitleSideAdapter = object : TitleSideAdapter(ArrayList<Titre>(0)) {
         override fun onCellClick(model: Titre, pos: Int) {
-            mPresenter?.loadTitle(model.id!!)
+            if (getItemViewType(pos) == PREAMBULE_VIEW_TYPE) {
+                val navigation: Navigation = activity as MainActivity
+                navigation.showArticle(model.id!!, 1)
+            }
+            else {
+                mPresenter?.loadTitle(model.id!!)
+            }
         }
 
     }
