@@ -80,7 +80,8 @@ class BookShelfActivity : AppCompatActivity() {
             val coverDrawable = Drawable.createFromStream(coverStream, null)
             holder.coverIV.setImageDrawable(coverDrawable)
             holder.itemView.setOnClickListener {
-                val intent = Intent(it.context, ArticleActivity::class.java)
+                val intent = Intent(it.context, DocumentActivity::class.java)
+                intent.putExtra(DocumentActivity.PATH_KEY, model.path)
                 it.context.startActivity(intent)
             }
         }
