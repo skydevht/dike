@@ -6,4 +6,5 @@ package tech.skydev.dike.config
 
 object Constant {
     val CONST_1987_A_DIR = "constitution-1987-amende"
+    val DOCUMENTS_LIST = "documents.json"
 }

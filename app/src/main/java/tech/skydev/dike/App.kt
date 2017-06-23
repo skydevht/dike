@@ -18,7 +18,5 @@ class App : Application() {
         }
 
         MobileAds.initialize(this, "pub-2731520567117800");
-
-        Injection.provideConstitutionRepository(this)
     }
 }
