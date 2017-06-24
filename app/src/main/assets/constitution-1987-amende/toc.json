@@ -5,7 +5,7 @@
       "name": "DE LA RÉPUBLIQUE D’HAÏTI : SON EMBLÈME – SES SYMBOLES",
       "type": "TITRE I",
       "order": 1,
-      "sections" : [
+      "children" : [
         {
           "name": "DE LA RÉPUBLIQUE D’HAÏTI",
           "type": "CHAPITRE I",

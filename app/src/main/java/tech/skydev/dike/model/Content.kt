@@ -8,6 +8,6 @@ import org.parceler.Parcel
 @Parcel(Parcel.Serialization.BEAN)
 class Content {
     var name: String? = null
-    var filename: String? = null
+    var path: String? = null
     var order: Int = 0
 }

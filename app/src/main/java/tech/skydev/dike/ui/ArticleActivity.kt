@@ -7,7 +7,10 @@ import tech.skydev.dike.R
 
 class ArticleActivity : AppCompatActivity() {
 
-    lateinit var articleView : MarkdownView
+    lateinit var articleView: MarkdownView
+
+
+    var path: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,10 +18,22 @@ class ArticleActivity : AppCompatActivity() {
         articleView = findViewById(R.id.article_view) as MarkdownView
         articleView.settings.builtInZoomControls = true
         articleView.settings.displayZoomControls = false
+
+        path = if (savedInstanceState == null) intent.getStringExtra(DocumentActivity.PATH_KEY) else savedInstanceState.getString(DocumentActivity.PATH_KEY)
     }
 
     override fun onStart() {
         super.onStart()
-        articleView.loadMarkdownFromAssets("constitution-1987-amende/text/preambule.md")
+        if (!path.isNullOrBlank())
+            articleView.loadMarkdownFromAssets(path)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        outState?.putString(PATH_KEY, path)
+    }
+
+    companion object {
+        val PATH_KEY = "path_key"
     }
 }

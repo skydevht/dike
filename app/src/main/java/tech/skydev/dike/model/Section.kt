@@ -11,6 +11,6 @@ class Section {
     var type : String? = null
     var order : Int? = 0
 
-    var children : ArrayList<Section>? = null
-    var contents : ArrayList<Content>? = null
+    var children : List<Section>? = null
+    var contents : List<Content>? = null
 }

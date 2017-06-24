@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.DocumentActivity" />
+        <activity android:name=".ui.SectionActivity"></activity>
     </application>
 
 </manifest>

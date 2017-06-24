@@ -13,6 +13,7 @@ import android.widget.TextView
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import org.parceler.Parcels
 import tech.skydev.dike.R
 import tech.skydev.dike.model.Document
 import tech.skydev.dike.model.Section
@@ -23,7 +24,7 @@ import java.io.IOException
 class DocumentActivity : AppCompatActivity() {
 
     lateinit var recycler: RecyclerView
-    val adapter = TocAdapter();
+    val adapter = TocAdapter()
     var path: String? = null
 
 
@@ -50,7 +51,6 @@ class DocumentActivity : AppCompatActivity() {
 
     companion object {
         val PATH_KEY = "path_key"
-
     }
 
     inner class LoadDocumentTask : AsyncTask<String, Void, Document?>() {
@@ -76,7 +76,9 @@ class DocumentActivity : AppCompatActivity() {
         override fun onPostExecute(result: Document?) {
             if (result != null && result.sections != null) {
                 adapter.models = result.sections!! as ArrayList<Section>
+                adapter.path = path?:""
                 adapter.notifyDataSetChanged()
+                title = result.name
             }
         }
     }
@@ -87,12 +89,16 @@ class DocumentActivity : AppCompatActivity() {
             return models.size
         }
 
+        var path = ""
+
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val model = models[position]
             holder.nameView.text = model.name
             holder.titleView.text = model.type
             holder.itemView.setOnClickListener {
-                val intent = Intent(it.context, ArticleActivity::class.java)
+                val intent = Intent(it.context, SectionActivity::class.java)
+                intent.putExtra(SectionActivity.PATH_KEY, path)
+                intent.putExtra(SectionActivity.SECTION_KEY, Parcels.wrap(model))
                 it.context.startActivity(intent)
             }
         }
