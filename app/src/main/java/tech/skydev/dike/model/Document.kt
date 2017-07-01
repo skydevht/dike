@@ -7,6 +7,7 @@ import org.parceler.Parcel
  */
 @Parcel(Parcel.Serialization.BEAN)
 class Document{
+    var id: String? = null
     var name: String? = null
     var path: String? = null
     var sections: List<Section>? = null

@@ -12,11 +12,22 @@
           "order": 1,
           "contents": [
             {
-              "name" : "Article 1",
+              "name" : "ARTICLE 1",
               "order" : 1,
               "path" : "text/t_1/a_1.md"
+            },
+            {
+              "name" : "ARTICLE 2",
+              "order" : 1,
+              "path" : "text/t_1/a_2.md"
             }
           ]
+        },
+        {
+          "name": "DU TERRITOIRE DE LA RÉPUBLIQUE D’HAÏTI",
+          "type": "CHAPITRE II",
+          "order": 2,
+          "contents": null
         }
       ]
     },
@@ -39,6 +50,56 @@
       "name": "DE LA SOUVERAINETÉ NATIONALE",
       "type": "TITRE V",
       "order": 5
+    },
+    {
+      "name": "DES INSTITUTIONS INDÉPENDANTES",
+      "type": "TITRE VI",
+      "order": 6
+    },
+    {
+      "name": "DES FINANCES PUBLIQUES",
+      "type": "TITRE VII",
+      "order": 7
+    },
+    {
+      "name": "DE LA FONCTION PUBLIQUE",
+      "type": "TITRE VIII",
+      "order": 8
+    },
+    {
+      "name": "DE L’ECONOMIE, DE L’AGRICULTURE et DE L’ENVIRONNEMENT",
+      "type": "TITRE IX",
+      "order": 9
+    },
+    {
+      "name": "DE LA FAMILLE",
+      "type": "TITRE X",
+      "order": 10
+    },
+    {
+      "name": "DE LA FORCE PUBLIQUE",
+      "type": "TITRE XI",
+      "order": 11
+    },
+    {
+      "name": "DISPOSITIONS GÉNÉRALES",
+      "type": "TITRE XII",
+      "order": 12
+    },
+    {
+      "name": "AMENDEMENTS A LA CONSTITUTION",
+      "type": "TITRE XIII",
+      "order": 13
+    },
+    {
+      "name": "DES DISPOSITIONS TRANSITOIRES",
+      "type": "TITRE XIV",
+      "order": 14
+    },
+    {
+      "name": "DISPOSITIONS FINALES",
+      "type": "TITRE XV",
+      "order": 15
     }
   ]
 }

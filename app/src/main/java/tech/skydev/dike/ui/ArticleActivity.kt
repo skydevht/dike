@@ -1,16 +1,15 @@
 package tech.skydev.dike.ui
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import com.mukesh.MarkdownView
 import tech.skydev.dike.R
 
-class ArticleActivity : AppCompatActivity() {
+class ArticleActivity : BaseActivity() {
 
     lateinit var articleView: MarkdownView
 
 
-    var path: String? = null
+    var article: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,18 +18,18 @@ class ArticleActivity : AppCompatActivity() {
         articleView.settings.builtInZoomControls = true
         articleView.settings.displayZoomControls = false
 
-        path = if (savedInstanceState == null) intent.getStringExtra(DocumentActivity.PATH_KEY) else savedInstanceState.getString(DocumentActivity.PATH_KEY)
+        article = if (savedInstanceState == null) intent.getStringExtra(DocumentActivity.ID_KEY) else savedInstanceState.getString(DocumentActivity.ID_KEY)
     }
 
     override fun onStart() {
         super.onStart()
-        if (!path.isNullOrBlank())
-            articleView.loadMarkdownFromAssets(path)
+        if (!article.isNullOrBlank())
+            articleView.loadMarkdownFromAssets(article)
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
-        outState?.putString(PATH_KEY, path)
+        outState?.putString(PATH_KEY, article)
     }
 
     companion object {

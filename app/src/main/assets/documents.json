@@ -1,6 +1,12 @@
 [
   {
-    "name" : "Constitution 1987 - amendée",
-    "path" : "constitution-1987-amende"
+    "id": "CON87A",
+    "name": "Constitution 1987 - amendée",
+    "path": "constitution-1987-amende"
+  },
+  {
+    "id": "CODPEN",
+    "name": "Code pénal",
+    "path": "code-penal"
   }
 ]

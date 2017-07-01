@@ -3,7 +3,6 @@ package tech.skydev.dike.ui
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
-import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -13,20 +12,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.google.gson.FieldNamingPolicy
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import com.google.gson.reflect.TypeToken
+import tech.skydev.dike.Injector
 import tech.skydev.dike.R
-import tech.skydev.dike.config.Constant
 import tech.skydev.dike.model.Document
-import tech.skydev.dike.util.FileUtil
-import java.lang.reflect.Type
+import tech.skydev.dike.service.DocumentService
 
 class BookShelfActivity : AppCompatActivity() {
 
     lateinit var recycler : RecyclerView
     val adapter = Adapter(this)
+    val service = Injector.documentService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,29 +33,18 @@ class BookShelfActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        LoadDocumentsTask().execute()
+        service?.loadAllDocuments(object : DocumentService.Callback<List<Document>> {
+            override fun onSuccess(result: List<Document>) {
+                adapter.models = result as ArrayList<Document>
+                adapter.notifyDataSetChanged()
+            }
+
+            override fun onError(ex: Exception) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+        })
     }
 
-    inner class LoadDocumentsTask: AsyncTask<Void, Void, List<Document>>() {
-        var gson: Gson = GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .create()
-
-
-        override fun doInBackground(vararg params: Void?): List<Document> {
-            val documentsJson = FileUtil.loadTextFileFromAssets(this@BookShelfActivity, Constant.DOCUMENTS_LIST)
-            val collectionType: Type = (object : TypeToken<ArrayList<Document>>() {}).getType()
-            val documents = gson.fromJson<List<Document>>(documentsJson, collectionType)
-            return documents
-        }
-
-        override fun onPostExecute(result: List<Document>) {
-            super.onPostExecute(result)
-            adapter.models = result as ArrayList<Document>
-            adapter.notifyDataSetChanged()
-        }
-
-    }
 
     class Adapter(val context: Context, var models : ArrayList<Document> = ArrayList()): RecyclerView.Adapter<Adapter.ViewHolder>() {
 
@@ -81,7 +65,7 @@ class BookShelfActivity : AppCompatActivity() {
             holder.coverIV.setImageDrawable(coverDrawable)
             holder.itemView.setOnClickListener {
                 val intent = Intent(it.context, DocumentActivity::class.java)
-                intent.putExtra(DocumentActivity.PATH_KEY, model.path)
+                intent.putExtra(DocumentActivity.ID_KEY, model.id)
                 it.context.startActivity(intent)
             }
         }

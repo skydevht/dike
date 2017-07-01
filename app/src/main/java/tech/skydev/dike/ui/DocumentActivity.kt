@@ -1,31 +1,26 @@
 package tech.skydev.dike.ui
 
 import android.content.Intent
-import android.os.AsyncTask
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.google.gson.FieldNamingPolicy
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import org.parceler.Parcels
+import tech.skydev.dike.Injector
 import tech.skydev.dike.R
 import tech.skydev.dike.model.Document
 import tech.skydev.dike.model.Section
-import tech.skydev.dike.util.FileUtil
-import timber.log.Timber
-import java.io.IOException
+import tech.skydev.dike.service.DocumentService
 
-class DocumentActivity : AppCompatActivity() {
+class DocumentActivity : BaseActivity() {
 
     lateinit var recycler: RecyclerView
     val adapter = TocAdapter()
-    var path: String? = null
+    val service = Injector.documentService
+    var id: String? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,51 +31,34 @@ class DocumentActivity : AppCompatActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = adapter
 
-        path = if (savedInstanceState == null) intent.getStringExtra(PATH_KEY) else savedInstanceState.getString(PATH_KEY)
+        id = if (savedInstanceState == null) intent.getStringExtra(ID_KEY) else savedInstanceState.getString(ID_KEY)
     }
 
     override fun onStart() {
         super.onStart()
-        LoadDocumentTask().execute(path)
+        service?.loadDocument(id!!, object : DocumentService.Callback<Document> {
+            override fun onSuccess(result: Document) {
+                title = result.name
+                adapter.path = result.path!!
+                adapter.models = result.sections!! as ArrayList<Section>
+                adapter.notifyDataSetChanged()
+
+            }
+
+            override fun onError(ex: Exception) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+        })
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
-        outState?.putString(PATH_KEY, path)
+        outState?.putString(ID_KEY, id)
     }
 
     companion object {
-        val PATH_KEY = "path_key"
-    }
-
-    inner class LoadDocumentTask : AsyncTask<String, Void, Document?>() {
-        var gson: Gson = GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .create()
-
-        override fun doInBackground(vararg params: String?): Document? {
-            val docPath = if (params.isNotEmpty()) params[0] else null
-            if (!docPath.isNullOrBlank()) {
-                try {
-                    val toc = FileUtil.loadTextFileFromAssets(this@DocumentActivity, "${docPath}/toc.json")
-                    val document = gson.fromJson(toc, Document::class.java)
-                    return document
-                } catch (ex : IOException) {
-                    Timber.e(ex, "Error loading the toc at ${docPath}")
-                    return null
-                }
-            } else
-                return null
-        }
-
-        override fun onPostExecute(result: Document?) {
-            if (result != null && result.sections != null) {
-                adapter.models = result.sections!! as ArrayList<Section>
-                adapter.path = path?:""
-                adapter.notifyDataSetChanged()
-                title = result.name
-            }
-        }
+        val ID_KEY = "path_key"
     }
 
     class TocAdapter(var models: ArrayList<Section> = ArrayList()) : RecyclerView.Adapter<TocAdapter.ViewHolder>() {

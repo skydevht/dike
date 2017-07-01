@@ -1,8 +1,9 @@
 package tech.skydev.dike.ui
 
+import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -11,15 +12,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import org.parceler.Parcels
 import tech.skydev.dike.R
+import tech.skydev.dike.model.Content
 import tech.skydev.dike.model.Section
 
-class SectionActivity : AppCompatActivity() {
+class SectionActivity : BaseActivity() {
 
     var section: Section? = null
     var path: String? = null
 
     lateinit var recycler: RecyclerView
-    val adapter = ContentAdapter();
+    val adapter = ContentAdapter(this);
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,9 +31,10 @@ class SectionActivity : AppCompatActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = adapter
 
-        path = if (savedInstanceState == null) intent.getStringExtra(PATH_KEY) else savedInstanceState.getString(PATH_KEY)
+        adapter.path = if (savedInstanceState == null) intent.getStringExtra(PATH_KEY) else savedInstanceState.getString(PATH_KEY)
         section = Parcels.unwrap(if (savedInstanceState == null)
             intent.getParcelableExtra(SECTION_KEY) else savedInstanceState.getParcelable(SECTION_KEY))
+        title = section?.name
     }
 
     override fun onStart() {
@@ -50,9 +53,12 @@ class SectionActivity : AppCompatActivity() {
         val PATH_KEY = "path_key"
     }
 
-    inner class ContentAdapter() : RecyclerView.Adapter<ContentAdapter.ViewHolder>() {
+    class ContentAdapter(val context: Context) : RecyclerView.Adapter<ContentAdapter.ViewHolder>() {
 
         var models: ArrayList<SectionItem> = ArrayList()
+        val contents: ArrayList<Content> = ArrayList()
+        val BODY_TEXT = 5
+        var path: String? = null
 
         fun setData(section: Section?) {
             models.clear()
@@ -60,16 +66,20 @@ class SectionActivity : AppCompatActivity() {
             notifyDataSetChanged()
         }
 
-        private fun processSection(section: Section?) {
+        private fun processSection(section: Section?, level: Int = 0) {
             if (section != null) {
-                if (section.children != null && section.children?.isNotEmpty()?:false) section.children?.forEach { processSection(it) }
+                val sectionItem = SectionItem(section.name, null, section.order, level)
+                models.add(sectionItem)
                 section.contents?.forEach {
-                    val model = SectionItem(it.name, it.path, it.order)
+                    val model = SectionItem(it.name, it.path, it.order, BODY_TEXT)
                     //TODO classification
                     models.add(model)
+                    contents.add(it)
                 }
+                if (section.children != null && section.children?.isNotEmpty() ?: false) section.children?.forEach { processSection(it, level + 1) }
             }
         }
+
 
         override fun getItemCount(): Int {
             return models.size
@@ -78,11 +88,24 @@ class SectionActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val model = models[position]
             holder.titleView.text = model.name
-            holder.itemView.setOnClickListener {
-                val intent = Intent(it.context, ArticleActivity::class.java)
-                intent.putExtra(ArticleActivity.PATH_KEY, "$path/${model.path}")
-                it.context.startActivity(intent)
+            holder.titleView.textSize = when (model.level) {
+                0 -> 23.616f
+                1 -> 22.128f
+                2 -> 20.736f
+                3 -> 19.44f
+                4 -> 18.208f
+                else -> 16f
             }
+            if (model.level < BODY_TEXT) holder.titleView.setTextColor(context.resources.getColor(R.color.colorAccent))
+            else holder.titleView.setTextColor(Color.parseColor("#000000"))
+            //if (model.level < BODY_TEXT) holder.titleView.setTypeface(null, Typeface.BOLD) else holder.titleView.setTypeface(null, Typeface.NORMAL)
+            if (model.level >= BODY_TEXT)
+                holder.itemView.setOnClickListener {
+                    val intent = Intent(it.context, ArticleActivity::class.java)
+                    intent.putExtra(ArticleActivity.PATH_KEY, "$path/${model.path}")
+                    it.context.startActivity(intent)
+                }
+            else holder.itemView.setOnClickListener(null)
         }
 
         override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
@@ -100,6 +123,6 @@ class SectionActivity : AppCompatActivity() {
 
         }
 
-        inner class SectionItem(val name: String?,  val path: String?, val order: Int = 0)
+        inner class SectionItem(val name: String?, val path: String?, val order: Int = 0, val level: Int = 0)
     }
 }

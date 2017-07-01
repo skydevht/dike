@@ -13,6 +13,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintDimensionRatio="h,16:9"
+        android:scaleType="centerCrop"
         tools:src="@color/colorAccent"/>
 
     <FrameLayout
