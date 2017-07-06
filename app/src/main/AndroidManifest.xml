@@ -17,8 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.DocumentActivity" />
-        <activity android:name=".ui.SectionActivity"></activity>
+        <activity android:name=".ui.DocumentActivity"/>
+        <activity android:name=".ui.SectionActivity" />
     </application>
 
 </manifest>

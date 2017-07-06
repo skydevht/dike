@@ -68,12 +68,12 @@ class SectionActivity : BaseActivity() {
 
         private fun processSection(section: Section?, level: Int = 0) {
             if (section != null) {
-                val sectionItem = SectionItem(section.name, null, section.order, level)
+                val sectionItem = SectionItem(section.name, section.order, level)
                 models.add(sectionItem)
                 section.contents?.forEach {
-                    val model = SectionItem(it.name, it.path, it.order, BODY_TEXT)
-                    //TODO classification
+                    val model = SectionItem(it.name, it.order, BODY_TEXT)
                     models.add(model)
+                    it.path = "${path}/${it.path}"
                     contents.add(it)
                 }
                 if (section.children != null && section.children?.isNotEmpty() ?: false) section.children?.forEach { processSection(it, level + 1) }
@@ -88,21 +88,24 @@ class SectionActivity : BaseActivity() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val model = models[position]
             holder.titleView.text = model.name
-            holder.titleView.textSize = when (model.level) {
-                0 -> 23.616f
-                1 -> 22.128f
-                2 -> 20.736f
-                3 -> 19.44f
-                4 -> 18.208f
-                else -> 16f
-            }
-            if (model.level < BODY_TEXT) holder.titleView.setTextColor(context.resources.getColor(R.color.colorAccent))
+//            holder.titleView.textSize = when (model.level) {
+//                0 -> 23.616f
+//                1 -> 22.128f
+//                2 -> 20.736f
+//                3 -> 19.44f
+//                4 -> 18.208f
+//                else -> 16f
+//            }
+            if (model.level < BODY_TEXT) holder.titleView.setTextColor(Color.parseColor("#4d000000"))
             else holder.titleView.setTextColor(Color.parseColor("#000000"))
             //if (model.level < BODY_TEXT) holder.titleView.setTypeface(null, Typeface.BOLD) else holder.titleView.setTypeface(null, Typeface.NORMAL)
             if (model.level >= BODY_TEXT)
                 holder.itemView.setOnClickListener {
                     val intent = Intent(it.context, ArticleActivity::class.java)
-                    intent.putExtra(ArticleActivity.PATH_KEY, "$path/${model.path}")
+                    val id= contents.indexOfFirst { it
+                            .order == model.order }
+                    intent.putExtra(ArticleActivity.ART_ID_KEY, id)
+                    intent.putExtra(ArticleActivity.ART_KEY, Parcels.wrap(contents))
                     it.context.startActivity(intent)
                 }
             else holder.itemView.setOnClickListener(null)
@@ -123,6 +126,6 @@ class SectionActivity : BaseActivity() {
 
         }
 
-        inner class SectionItem(val name: String?, val path: String?, val order: Int = 0, val level: Int = 0)
+        inner class SectionItem(val name: String?, val order: Int = 0, val level: Int = 0)
     }
 }
