@@ -1,0 +1,71 @@
+{
+  "name": "Code du travail",
+  "sections": [
+    {
+      "name": "",
+      "type": "DISPOSITIONS GÉNÉRALES",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "",
+      "type": "DU CONTRAT DE TRAVAIL. DÉFINITIONS ET MODALITÉS DU CONTRAT DE TRAVAIL",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "Du contrat individuel de travail",
+      "type": "Loi No 1",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "Du contrat collectif de travail",
+      "type": "Loi No 2",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "Du contrat d'apprentissage",
+      "type": "Loi No 3",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "Des conditions de travail",
+      "type": "Loi No 4",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "Des conflits du travail",
+      "type": "Loi No 5",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "Des syndicats",
+      "type": "Loi No 6",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "De la main-d'œuvre soumise à un régime spécial",
+      "type": "Loi No 7",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "Du contrôle des établissements de travail et de l'emploi",
+      "type": "Loi No 8",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "Des tribunaux du travail",
+      "type": "Loi No 9",
+      "order": 1,
+      "contents": null
+    }
+  ]
+}

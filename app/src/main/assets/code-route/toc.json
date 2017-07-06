@@ -1,0 +1,35 @@
+{
+  "name": "Code de la route",
+  "sections": [
+    {
+      "name": "DISPOSITIONS PRÉLIMINAIRES",
+      "type": "TITRE I",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "DISPOSITIONS GENERALES",
+      "type": "TITRE II",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "",
+      "type": "TITRE III",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "",
+      "type": "TITRE IV",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "",
+      "type": "TITRE V",
+      "order": 1,
+      "contents": null
+    }
+  ]
+}

@@ -5,8 +5,23 @@
     "path": "constitution-1987-amende"
   },
   {
-    "id": "CODPEN",
+    "id": "CP",
     "name": "Code pénal",
     "path": "code-penal"
+  },
+  {
+    "id": "CIC",
+    "name": "Code d'instruction criminelle",
+    "path": "cic"
+  },
+  {
+    "id": "CT",
+    "name": "Code du travail",
+    "path": "code-travail"
+  },
+  {
+    "id": "CR",
+    "name": "Code de la route",
+    "path": "code-route"
   }
 ]

@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -17,7 +16,7 @@ import tech.skydev.dike.R
 import tech.skydev.dike.model.Document
 import tech.skydev.dike.service.DocumentService
 
-class BookShelfActivity : AppCompatActivity() {
+class BookShelfActivity : BaseActivity() {
 
     lateinit var recycler : RecyclerView
     val adapter = Adapter(this)
@@ -29,6 +28,12 @@ class BookShelfActivity : AppCompatActivity() {
         recycler = findViewById(R.id.list) as RecyclerView
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = adapter
+    }
+
+    override fun onPostCreate(savedInstanceState: Bundle?) {
+        super.onPostCreate(savedInstanceState)
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        supportActionBar?.setDisplayShowHomeEnabled(false)
     }
 
     override fun onStart() {

@@ -1,8 +1,12 @@
 package tech.skydev.dike.ui
 
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.SearchView
+import android.view.Menu
 import android.view.MenuItem
+import tech.skydev.dike.R
 
 /**
  * Created by hash on 6/28/17.
@@ -15,12 +19,30 @@ open class BaseActivity: AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (item?.itemId == android.R.id.home ?:false) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == android.R.id.home ?:false) {
             onBackPressed()
+            return true
+        }else if (id == R.id.action_about) {
+            val alert = AlertDialog.Builder(this)
+                    .setTitle(R.string.action_about)
+                    .setView(layoutInflater.inflate(R.layout.dialog_about, null))
+                    .setPositiveButton("Fermer", null)
+                    .create()
+            alert.show()
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+
+        val item = menu.findItem(R.id.app_bar_search)
+        val searchView = item.getActionView() as SearchView
+        searchView.queryHint = "Rechercher dans un article"
+        return super.onCreateOptionsMenu(menu)
     }
 
 }

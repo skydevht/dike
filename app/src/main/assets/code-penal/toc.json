@@ -1,0 +1,73 @@
+{
+  "name": "Code Pénal",
+  "sections": [
+    {
+      "name": "Sur les dispositions générales",
+      "type": "Loi No 1",
+      "order": 1,
+      "contents": [
+        {
+          "name": "ARTICLE 1",
+          "order": 2,
+          "path": "text/l_1/a_1.md"
+        },
+        {
+          "name": "ARTICLE 2",
+          "order": 3,
+          "path": "text/l_1/a_2.md"
+        },
+        {
+          "name": "ARTICLE 3",
+          "order": 4,
+          "path": "text/l_1/a_3.md"
+        },
+        {
+          "name": "ARTICLE 4",
+          "order": 5,
+          "path": "text/l_1/a_4.md"
+        },
+        {
+          "name": "ARTICLE 5",
+          "order": 6,
+          "path": "text/l_1/a_5.md"
+        }
+      ]
+    },
+    {
+      "name": "Sur les peines en matières criminelles et correctionnelles et sur leurs effets",
+      "type": "Loi No 2",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "Sur les personnes punissables, excusables ou responsables pour crimes et délits",
+      "type": "Loi No 3",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "Sur les crimes, les délits et leur punition",
+      "type": "Loi No 4",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "Crimes et délits contre la chose publique",
+      "type": "TITRE I",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "Crimes et délits contre les particuliers",
+      "type": "TITRE II",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "Sur les contraventions de police et les peines",
+      "type": "Loi No 5",
+      "order": 1,
+      "contents": null
+    }
+  ]
+}

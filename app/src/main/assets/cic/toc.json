@@ -1,0 +1,53 @@
+{
+  "name": "Code d'instruction criminelle",
+  "sections": [
+    {
+      "name": "SUR LES DISPOSITIONS PRÉLIMINAIRES",
+      "type": "Loi No 1",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "SUR	LA POLICE JUDICIAIRE ET LES OFFICIERS ET AGENTS DE POLICE QUI L'EXERCENT",
+      "type": "Loi No 2",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "SUR LES TRIBUNAUX DE POLICE",
+      "type": "Loi No 3",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "SUR LES TRIBUNAUX CRIMINELS ET LE JURY ",
+      "type": "Loi No 4",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "SUR LES MANIÈRES DE SE POURVOIR CONTRE LES ARRÊTS OU JUGEMENTS",
+      "type": "Loi No 5",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "SUR QUELQUES PROCÉDURES PARTICULIÈRES",
+      "type": "Loi No 6",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "SUR LES RÈGLEMENTS DE JUGES, ET LES RENVOIS D'UN TRIBUNAL À UN AUTRE",
+      "type": "Loi No 7",
+      "order": 1,
+      "contents": null
+    },
+    {
+      "name": "SUR QUELQUES OBJETS D'INTÉRÊT PUBLIC ET DE SÛRETÉ GÉNÉRALE",
+      "type": "Loi No 8",
+      "order": 1,
+      "contents": null
+    }
+  ]
+}
