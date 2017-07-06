@@ -1,20 +1,22 @@
 package tech.skydev.dike.ui
 
 import android.os.Bundle
-import android.widget.Button
+import android.view.MotionEvent
 import com.mukesh.MarkdownView
 import org.parceler.Parcels
 import tech.skydev.dike.R
 import tech.skydev.dike.model.Content
+import tech.skydev.dike.util.SimpleGestureFilter
 
-class ArticleActivity : BaseActivity() {
+
+class ArticleActivity : BaseActivity(), SimpleGestureFilter.SimpleGestureListener {
 
     lateinit var articleView: MarkdownView
-    lateinit var prevButton: Button
-    lateinit var nextButton: Button
 
     var articles: ArrayList<Content>? = null
     var article_id: Int = -1
+
+    private var detector: SimpleGestureFilter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,35 +25,17 @@ class ArticleActivity : BaseActivity() {
         articleView.settings.builtInZoomControls = true
         articleView.settings.displayZoomControls = false
 
-        prevButton = findViewById(R.id.previous) as Button
-        nextButton = findViewById(R.id.next) as Button
-
-        prevButton.setOnClickListener {
-            if (article_id > 0) article_id--
-            if (article_id == 0) prevButton.isEnabled = false
-            if (!nextButton.isEnabled) nextButton.isEnabled = true
-            loadArticle()
-        }
-        nextButton.setOnClickListener {
-            if (article_id < articles?.size ?: -2) article_id++
-            if (article_id == (articles?.size ?: -1) - 1) nextButton.isEnabled = false
-            if (!prevButton.isEnabled) prevButton.isEnabled = true
-            loadArticle()
-        }
-
 
         article_id = if (savedInstanceState == null) intent.getIntExtra(ART_ID_KEY, -1) else savedInstanceState.getInt(ART_ID_KEY, -1)
         articles = Parcels.unwrap(if (savedInstanceState == null) intent.getParcelableExtra(ART_KEY) else savedInstanceState.getParcelable(ART_KEY))
 
-        if (articles == null) {
-            prevButton.isEnabled = false
-            nextButton.isEnabled = false
-        } else {
-            if (article_id <= 0)
-                prevButton.isEnabled = false
-            else if (article_id >= (articles?.size ?: -1) - 1)
-                nextButton.isEnabled = false
-        }
+        detector = SimpleGestureFilter(this, this)
+        detector?.mode = SimpleGestureFilter.MODE_TRANSPARENT
+    }
+
+    override fun dispatchTouchEvent(me: MotionEvent): Boolean {
+        this.detector?.onTouchEvent(me)
+        return super.dispatchTouchEvent(me)
     }
 
     override fun onStart() {
@@ -69,6 +53,27 @@ class ArticleActivity : BaseActivity() {
         super.onSaveInstanceState(outState)
         outState?.putInt(ART_ID_KEY, article_id)
         outState?.putParcelable(ART_KEY, Parcels.wrap(articles))
+    }
+
+    override fun onSwipe(direction: Int) {
+        when (direction) {
+            SimpleGestureFilter.SWIPE_LEFT -> {
+                if (article_id < articles!!.size -1) {
+                    article_id++
+                    loadArticle()
+                }
+            }
+            SimpleGestureFilter.SWIPE_RIGHT -> {
+                if (article_id > 0) {
+                    article_id--
+                    loadArticle()
+                }
+            }
+        }
+    }
+
+    override fun onDoubleTap() {
+        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     companion object {
