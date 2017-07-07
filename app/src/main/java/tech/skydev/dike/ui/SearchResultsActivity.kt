@@ -25,7 +25,7 @@ class SearchResultsActivity : AppCompatActivity() {
     }
 
     override fun onNewIntent(intent: Intent) {
-        handleIntent(intent);
+        handleIntent(intent)
     }
 
     fun handleIntent(intent: Intent) {

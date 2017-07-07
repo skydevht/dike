@@ -10,13 +10,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.mukesh.MarkdownView
+        <tech.skydev.dike.markdownview.MarkdownView
             android:id="@+id/article_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
 
-        </com.mukesh.MarkdownView>
+        </tech.skydev.dike.markdownview.MarkdownView>
     </LinearLayout>
 
 </FrameLayout>

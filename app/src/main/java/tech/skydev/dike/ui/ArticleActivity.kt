@@ -2,9 +2,9 @@ package tech.skydev.dike.ui
 
 import android.os.Bundle
 import android.view.MotionEvent
-import com.mukesh.MarkdownView
 import org.parceler.Parcels
 import tech.skydev.dike.R
+import tech.skydev.dike.markdownview.MarkdownView
 import tech.skydev.dike.model.Content
 import tech.skydev.dike.util.SimpleGestureFilter
 
