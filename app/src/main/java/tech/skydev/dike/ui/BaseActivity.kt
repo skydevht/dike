@@ -1,5 +1,7 @@
 package tech.skydev.dike.ui
 
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
@@ -40,8 +42,9 @@ open class BaseActivity: AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_main, menu)
 
         val item = menu.findItem(R.id.app_bar_search)
+        val manager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = item.getActionView() as SearchView
-        searchView.queryHint = "Rechercher dans un article"
+        searchView.setSearchableInfo(manager.getSearchableInfo(this.componentName))
         return super.onCreateOptionsMenu(menu)
     }
 

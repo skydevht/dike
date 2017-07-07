@@ -32,6 +32,7 @@ dependencies {
 
 
 
+
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -46,7 +47,6 @@ dependencies {
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     kapt 'org.parceler:parceler:1.1.8'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-
 }
 repositories {
     mavenCentral()

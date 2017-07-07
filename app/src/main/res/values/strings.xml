@@ -2,4 +2,5 @@
     <string name="app_name">Dike</string>
     <string name="action_about">A propos</string>
     <string name="copyright_text">Copyright Holy-Elie Scaide</string>
+    <string name="search_hint">Rechercher dans un article</string>
 </resources>
