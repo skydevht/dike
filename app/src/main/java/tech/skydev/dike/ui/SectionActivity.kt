@@ -18,7 +18,6 @@ import tech.skydev.dike.model.Section
 class SectionActivity : BaseActivity() {
 
     var section: Section? = null
-    var path: String? = null
 
     lateinit var recycler: RecyclerView
     val adapter = ContentAdapter(this);
@@ -45,7 +44,7 @@ class SectionActivity : BaseActivity() {
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
         outState?.putParcelable(SECTION_KEY, Parcels.wrap(section))
-        outState?.putString(PATH_KEY, path)
+        outState?.putString(PATH_KEY, adapter.path)
     }
 
     companion object {
@@ -73,7 +72,8 @@ class SectionActivity : BaseActivity() {
                 section.contents?.forEach {
                     val model = SectionItem(it.name, it.order, BODY_TEXT)
                     models.add(model)
-                    it.path = "${path}/${it.path}"
+                    if (it.path?.startsWith("text", true) ?: false)
+                        it.path = "${path}/${it.path}"
                     contents.add(it)
                 }
                 if (section.children != null && section.children?.isNotEmpty() ?: false) section.children?.forEach { processSection(it, level + 1) }
@@ -102,8 +102,10 @@ class SectionActivity : BaseActivity() {
             if (model.level >= BODY_TEXT)
                 holder.itemView.setOnClickListener {
                     val intent = Intent(it.context, ArticleActivity::class.java)
-                    val id= contents.indexOfFirst { it
-                            .order == model.order }
+                    val id = contents.indexOfFirst {
+                        it
+                                .order == model.order
+                    }
                     intent.putExtra(ArticleActivity.ART_ID_KEY, id)
                     intent.putExtra(ArticleActivity.ART_KEY, Parcels.wrap(contents))
                     it.context.startActivity(intent)
