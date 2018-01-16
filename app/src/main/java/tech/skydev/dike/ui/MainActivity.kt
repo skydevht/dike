@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), Navigation {
 
     private var mTitlesPresenter: TitlesPresenter? = null
     private lateinit var currentFragmentTag: String
-    private var FRAG_TAG_KEY: String = "frag-tag"
+    private val FRAG_TAG_KEY: String = "frag-tag"
     val aboutDialog = AboutDialog()
 
     lateinit var mAdView: AdView
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity(), Navigation {
 
         if (savedInstanceState == null) {
             currentFragmentTag = TitleFragment.TAG
-            // Create the fragment
+            // Create the main fragment
             val titleFragment = TitleFragment.newInstance()
             ActivityUtils.addFragmentToActivity(
                     supportFragmentManager, titleFragment, R.id.contentFrame, false, TitleFragment.TAG)
@@ -61,8 +61,10 @@ class MainActivity : AppCompatActivity(), Navigation {
                     Injection.provideConstitutionRepository(this@MainActivity), titleFragment)
         } else {
             currentFragmentTag = savedInstanceState.getString(FRAG_TAG_KEY, TitleFragment.TAG)
+            // Get the main fragment if it is on the back stack
             val titleFragment: TitleFragment? = supportFragmentManager.findFragmentByTag(TitleFragment.TAG) as? TitleFragment
             titleFragment?.let {
+                // Recreate the presenter because they are not save on closing
                 TitlesPresenter(
                         Injection.provideConstitutionRepository(this@MainActivity), titleFragment)
             }
@@ -76,6 +78,7 @@ class MainActivity : AppCompatActivity(), Navigation {
                 ArticlePresenter(
                         Injection.provideConstitutionRepository(this@MainActivity), articleFragment)
             }
+            // To reshow the back button if it is not the main string (the previous are always on the back stack
             if (currentFragmentTag == TitleDetailsFragment.TAG || currentFragmentTag == ArticleFragment.TAG) bar.setDisplayHomeAsUpEnabled(true);
         }
     }
