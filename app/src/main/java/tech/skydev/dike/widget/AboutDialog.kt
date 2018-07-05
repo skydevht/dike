@@ -13,9 +13,9 @@ import tech.skydev.dike.R
 class AboutDialog : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
-        val builder = AlertDialog.Builder(activity)
+        val builder = AlertDialog.Builder(context!!)
 
-        val inflater = activity.layoutInflater
+        val inflater = activity!!.layoutInflater
 
 
 

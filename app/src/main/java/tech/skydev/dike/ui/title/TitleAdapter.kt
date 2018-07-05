@@ -27,8 +27,8 @@ abstract class TitleAdapter(internal var models: ArrayList<Titre>) : RecyclerVie
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var layout: Int
-        var holder: ViewHolder
+        val layout: Int
+        val holder: ViewHolder
         val inflater = LayoutInflater.from(parent.context)
         if (viewType == PREAMBULE_VIEW_TYPE) {
             layout = R.layout.cell_section_preambule

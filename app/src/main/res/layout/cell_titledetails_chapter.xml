@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/text"
         android:textStyle="bold"
         tools:text="Chapitre I - DE LA RÉPUBLIQUE D’HAÏTI"/>
 

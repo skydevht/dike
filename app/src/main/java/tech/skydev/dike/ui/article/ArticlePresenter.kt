@@ -25,7 +25,6 @@ class ArticlePresenter(val constitutionRepository: ConstitutionRepository, val a
             }
 
             override fun onError(t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
         })
@@ -38,7 +37,6 @@ class ArticlePresenter(val constitutionRepository: ConstitutionRepository, val a
             }
 
             override fun onError(t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
         })

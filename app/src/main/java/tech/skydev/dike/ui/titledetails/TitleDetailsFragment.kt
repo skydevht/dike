@@ -43,7 +43,7 @@ class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mTitleId = if (savedInstanceState == null) arguments.getString(TITLE_ID_KEY)!! else savedInstanceState.getString(TITLE_ID_KEY)
+        mTitleId = if (savedInstanceState == null) arguments!!.getString(TITLE_ID_KEY)!! else savedInstanceState.getString(TITLE_ID_KEY)
 
         mAdapter.mListener = object : TitleDetailsAdapter.ClickListener() {
             override fun onArticleClicked(article: Article) {
@@ -53,9 +53,9 @@ class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val rootView = inflater!!.inflate(R.layout.fragment_titledetails, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_titledetails, container, false)
         initMainRecycler(rootView)
         val sideRecycler = rootView.findViewById(R.id.section_list) as RecyclerView
         sideRecycler.layoutManager = LinearLayoutManager(context)
@@ -82,10 +82,10 @@ class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
         recycler.layoutManager = layoutManager
         recycler.adapter = mAdapter
 
-        recycler.addItemDecoration(GridSpacingItemDecoration(ConversionUtil.dpToPx(context, 8), true))
+        recycler.addItemDecoration(GridSpacingItemDecoration(ConversionUtil.dpToPx(context!!, 8), true))
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mPresenter!!.loadTitle(mTitleId)
         mPresenter!!.loadTitles()
@@ -116,7 +116,7 @@ class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
         mSideAdapter.selectedId = mTitleId
     }
 
-    override fun onSaveInstanceState(outState: Bundle?) {
+    override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState?.putString(TITLE_ID_KEY, mTitleId)
     }

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="4dp"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/colorPrimary">
 
     <me.grantland.widget.AutofitTextView
         android:id="@+id/name"

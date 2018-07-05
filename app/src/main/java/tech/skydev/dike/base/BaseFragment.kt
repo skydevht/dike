@@ -11,7 +11,7 @@ abstract class BaseFragment : Fragment() {;
 
     val screenOrientation: Int
         get() {
-            val getOrient = activity.windowManager.defaultDisplay
+            val getOrient = activity!!.windowManager.defaultDisplay
             var orientation = Configuration.ORIENTATION_UNDEFINED
             if (getOrient.width == getOrient.height) {
                 orientation = Configuration.ORIENTATION_SQUARE

@@ -67,7 +67,7 @@ abstract class TitleSideAdapter(internal var models: ArrayList<Titre>) : Recycle
             }
 
             if (this@TitleSideAdapter.selectedId!! == model.id) {
-                itemView.setBackgroundColor(itemView.context.resources.getColor(R.color.colorAccent))
+                itemView.setBackgroundColor(itemView.context.resources.getColor(R.color.foreground))
                 mTextView.setTextColor(itemView.context.resources.getColor((R.color.colorPrimaryDark)))
             } else {
                 itemView.setBackgroundColor(itemView.context.resources.getColor(R.color.colorPrimaryDark))

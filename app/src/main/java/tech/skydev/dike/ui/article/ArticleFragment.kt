@@ -31,16 +31,17 @@ class ArticleFragment() : BaseFragment(), ArticleContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
-            mTitleId = arguments.getString(TITLE_ID_KEY, "")
-            mArticleId = arguments.getInt(ARTICLE_ID_KEY, -1)
+            mTitleId = arguments!!.getString(TITLE_ID_KEY, "")
+            mArticleId = arguments!!.getInt(ARTICLE_ID_KEY, -1)
         } else {
             mTitleId = savedInstanceState.getString(TITLE_ID_KEY, "")
             mArticleId = savedInstanceState.getInt(ARTICLE_ID_KEY, -1)
         }
+
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = inflater!!.inflate(R.layout.fragment_article, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val rootView = inflater.inflate(R.layout.fragment_article, container, false)
         mArticleView = rootView.findViewById(R.id.article_view) as ArticleView
         mArticleView?.swipeListener = ArticleViewListener()
         mPreviousArticleView = rootView.findViewById(R.id.previous_article)
@@ -124,31 +125,31 @@ class ArticleFragment() : BaseFragment(), ArticleContract.View {
                 textView.text = article.order
                 if (i == 1) {
                     // current View
-                    view.setBackgroundColor(context.resources.getColor(R.color.colorAccent))
-                    textView.setTextColor(context.resources.getColor(R.color.colorPrimaryDark))
+                    view.setBackgroundColor(context!!.resources.getColor(R.color.colorAccent))
+                    textView.setTextColor(context!!.resources.getColor(R.color.colorPrimaryDark))
                 }
             }
         }
     }
 
-    override fun onSaveInstanceState(outState: Bundle?) {
+    override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState?.putInt(ARTICLE_ID_KEY, mArticleId)
-        outState?.putString(TITLE_ID_KEY, mTitleId)
+        outState.putInt(ARTICLE_ID_KEY, mArticleId)
+        outState.putString(TITLE_ID_KEY, mTitleId)
     }
 
     companion object {
-        val TAG: String = "article-fragment"
-        val ARTICLE_ID_KEY: String = "article_id"
-        val TITLE_ID_KEY: String = "title_id"
+        const val TAG: String = "article-fragment"
+        const val ARTICLE_ID_KEY: String = "article_id"
+        const val TITLE_ID_KEY: String = "title_id"
 
         fun newInstance(titleId: String, articleId: Int): ArticleFragment {
-            val bundle: Bundle = Bundle()
+            val bundle = Bundle()
             val fragment = ArticleFragment()
             bundle.putInt(ARTICLE_ID_KEY, articleId)
             bundle.putString(TITLE_ID_KEY, titleId)
             fragment.arguments = bundle
-            return fragment;
+            return fragment
         }
     }
 

@@ -42,7 +42,7 @@ class TitleFragment : BaseFragment(), TitlesContract.View {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val rootView = inflater!!.inflate(R.layout.fragment_titles, container, false)
         val recycler: RecyclerView = rootView?.findViewById(R.id.section_list) as RecyclerView
@@ -63,11 +63,11 @@ class TitleFragment : BaseFragment(), TitlesContract.View {
         recycler.layoutManager =layoutManager
         recycler.adapter = mAdapter
 
-        recycler.addItemDecoration(GridSpacingItemDecoration(ConversionUtil.dpToPx(context, 8), true))
+        recycler.addItemDecoration(GridSpacingItemDecoration(ConversionUtil.dpToPx(context!!, 8), true))
         return rootView
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mPresenter!!.start()
     }
