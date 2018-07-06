@@ -1,5 +1,6 @@
 package tech.skydev.dike.ui.titledetails
 
+import com.google.firebase.analytics.FirebaseAnalytics
 import tech.skydev.dike.data.ConstitutionRepository
 import tech.skydev.dike.data.DataCallback
 import tech.skydev.dike.data.model.Titre
@@ -27,7 +28,7 @@ class TitleDetailsPresenter(val constitutionRepository: ConstitutionRepository,
             }
 
             override fun onError(t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                titleDetailsView.showMessage("Erreur lors du chargement des sections")
             }
         })
     }
@@ -39,7 +40,7 @@ class TitleDetailsPresenter(val constitutionRepository: ConstitutionRepository,
             }
 
             override fun onError(t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                titleDetailsView.showMessage("Erreur lors du chargement des titres")
             }
         })
     }

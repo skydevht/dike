@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
         android:gravity="center_horizontal"
-        android:text="Contributeur: Jonathan Louis Demosthènes"/>
+        android:text="Contributeur: Jonathan Lewis Demosthènes"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

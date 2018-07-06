@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity(), Navigation {
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
-        super.onSaveInstanceState(outState)
         outState?.putString(FRAG_TAG_KEY, currentFragmentTag)
+        super.onSaveInstanceState(outState)
     }
 }

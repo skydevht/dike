@@ -1,11 +1,13 @@
 package tech.skydev.dike.ui.article
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.google.firebase.analytics.FirebaseAnalytics
 import tech.skydev.dike.R
 import tech.skydev.dike.base.BaseFragment
 import tech.skydev.dike.data.model.Article
@@ -14,7 +16,7 @@ import tech.skydev.dike.widget.ArticleView
 /**
  * Created by Hash Skyd on 3/27/2017.
  */
-class ArticleFragment() : BaseFragment(), ArticleContract.View {
+class ArticleFragment : BaseFragment(), ArticleContract.View {
 
 
     private var mArticleView: ArticleView? = null
@@ -25,6 +27,10 @@ class ArticleFragment() : BaseFragment(), ArticleContract.View {
     private var mArticles: ArrayList<Article>? = null
 
     private var mArticleId: Int = -1
+
+    override lateinit var context2: Context
+    lateinit var mAnalytic: FirebaseAnalytics
+
 
     lateinit private var mTitleId: String
 
@@ -37,7 +43,8 @@ class ArticleFragment() : BaseFragment(), ArticleContract.View {
             mTitleId = savedInstanceState.getString(TITLE_ID_KEY, "")
             mArticleId = savedInstanceState.getInt(ARTICLE_ID_KEY, -1)
         }
-
+        context2 = context!!
+        mAnalytic = FirebaseAnalytics.getInstance(context!!)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -80,6 +87,13 @@ class ArticleFragment() : BaseFragment(), ArticleContract.View {
             for (article in mArticles!!) {
                 if (article.id == mArticleId) {
                     mArticleView?.article = article
+
+                    val bundle = Bundle()
+                    bundle.putString(FirebaseAnalytics.Param.ITEM_ID, article.id.toString())
+                    bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Article ${article.id}")
+                    bundle.putString(FirebaseAnalytics.Param.ITEM_CATEGORY, "article")
+                    mAnalytic.logEvent(FirebaseAnalytics.Event.VIEW_ITEM, bundle)
+
                     val name = if (article.order == "0") "Préambule" else "Article ${article.order}"
                     (activity as AppCompatActivity).supportActionBar?.title = name
                     (activity as AppCompatActivity).supportActionBar?.subtitle = null
@@ -97,12 +111,14 @@ class ArticleFragment() : BaseFragment(), ArticleContract.View {
     lateinit var mPresenter: ArticleContract.Presenter
 
     override fun setPresenter(presenter: ArticleContract.Presenter) {
-        mPresenter = presenter;
+        mPresenter = presenter
     }
 
     override fun showArticle(article: Article) {
         mArticleView?.article = article
         mArticleId = article.id
+
+
     }
 
     var mClickeIndicatorId: Int = -1
@@ -133,9 +149,9 @@ class ArticleFragment() : BaseFragment(), ArticleContract.View {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
         outState.putInt(ARTICLE_ID_KEY, mArticleId)
         outState.putString(TITLE_ID_KEY, mTitleId)
+        super.onSaveInstanceState(outState)
     }
 
     companion object {

@@ -13,10 +13,6 @@ class ArticlePresenter(val constitutionRepository: ConstitutionRepository, val a
         articleView.setPresenter(this)
     }
 
-    override fun start() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
     override fun loadArticle(titleId: String, articleId: Int) {
         constitutionRepository.getArticle(titleId, articleId, object: DataCallback<Array<Article?>> {
             override fun onSuccess(result: Array<Article?>) {
@@ -37,6 +33,7 @@ class ArticlePresenter(val constitutionRepository: ConstitutionRepository, val a
             }
 
             override fun onError(t: Throwable) {
+                articleView.showMessage("Impossible de charger l'article")
             }
 
         })

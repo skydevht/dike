@@ -32,7 +32,11 @@ class ArticleView : FrameLayout, GestureDetector.OnGestureListener {
         set(value) {
             val name = if (value?.order == "0") "Préambule" else "Article ${value?.order}"
             mArticleNameTV.text = name
-            mArticleTextTV.text = Html.fromHtml(value?.text)
+            val text = Html.fromHtml(value?.text)
+            if (text.isBlank())
+                mArticleTextTV.text = "<CONTENU NON DISPONIBLE>"
+            else mArticleTextTV.text = text
+            field = value
         }
 
     constructor(context: Context) : super(context)

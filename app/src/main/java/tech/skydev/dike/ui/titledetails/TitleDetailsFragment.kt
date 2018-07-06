@@ -1,5 +1,6 @@
 package tech.skydev.dike.ui.titledetails
 
+import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -9,6 +10,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.firebase.analytics.FirebaseAnalytics
 import tech.skydev.dike.R
 import tech.skydev.dike.base.BaseFragment
 import tech.skydev.dike.data.model.Article
@@ -25,6 +27,8 @@ import tech.skydev.dike.widget.GridSpacingItemDecoration
  */
 class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
 
+    override lateinit var context2: Context
+    lateinit var mAnalytic: FirebaseAnalytics
 
     var mAdapter: TitleDetailsAdapter = TitleDetailsAdapter(null)
     var mSideAdapter: TitleSideAdapter = object : TitleSideAdapter(ArrayList<Titre>(0)) {
@@ -37,7 +41,6 @@ class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
                 mPresenter?.loadTitle(model.id!!)
             }
         }
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +54,8 @@ class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
                 navigation.showArticle(mTitleId, article.id)
             }
         }
+        mAnalytic = FirebaseAnalytics.getInstance(context!!)
+        context2 = context!!
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -101,12 +106,18 @@ class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
 
     override fun showTitle(titre: Titre) {
         mAdapter.replaceItems(titre)
-        val bar = (activity as AppCompatActivity).supportActionBar
-        bar?.title = "Titre " + titre.id
+        val bar = (activity as MainActivity).supportActionBar
+        bar?.title = "Titre ${titre.id}"
         bar?.subtitle = titre.name
         mSideAdapter.selectedId = titre.id
-        mTitleId = titre.id!!;
+        mTitleId = titre.id ?: ""
         mSideAdapter.notifyDataSetChanged()
+
+        val bundle = Bundle()
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, mTitleId)
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, titre.name)
+        bundle.putString(FirebaseAnalytics.Param.ITEM_CATEGORY, "titre")
+        mAnalytic.logEvent(FirebaseAnalytics.Event.VIEW_ITEM, bundle)
     }
 
     lateinit var mTitleId: String
@@ -117,8 +128,8 @@ class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
+        outState.putString(TITLE_ID_KEY, mTitleId)
         super.onSaveInstanceState(outState)
-        outState?.putString(TITLE_ID_KEY, mTitleId)
     }
 
     companion object {

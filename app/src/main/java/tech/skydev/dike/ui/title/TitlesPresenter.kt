@@ -25,7 +25,7 @@ class TitlesPresenter(val constitutionRepository: ConstitutionRepository,
             }
 
             override fun onError(t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                titlesView.showMessage("Erreur lors du chargement du document")
             }
         })
     }
