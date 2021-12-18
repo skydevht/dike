@@ -1,7 +1,7 @@
 package tech.skydev.dike.util
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 
 /**
  * Created by Hash Skyd on 3/26/2017.
@@ -14,7 +14,7 @@ object ActivityUtils {
 
      */
     fun addFragmentToActivity(fragmentManager: FragmentManager,
-                              fragment: Fragment, frameId: Int, backstack: Boolean,  tag:String? = null) {
+                              fragment: Fragment, frameId: Int, backstack: Boolean, tag:String? = null) {
         checkNotNull(fragmentManager)
         checkNotNull(fragment)
         val transaction = fragmentManager.beginTransaction()

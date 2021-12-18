@@ -3,14 +3,13 @@ package tech.skydev.dike.ui.titledetails
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.google.firebase.analytics.FirebaseAnalytics
 import tech.skydev.dike.R
 import tech.skydev.dike.base.BaseFragment
 import tech.skydev.dike.data.model.Article
@@ -28,7 +27,6 @@ import tech.skydev.dike.widget.GridSpacingItemDecoration
 class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
 
     override lateinit var context2: Context
-    lateinit var mAnalytic: FirebaseAnalytics
 
     var mAdapter: TitleDetailsAdapter = TitleDetailsAdapter(null)
     var mSideAdapter: TitleSideAdapter = object : TitleSideAdapter(ArrayList<Titre>(0)) {
@@ -47,6 +45,7 @@ class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
         super.onCreate(savedInstanceState)
 
         mTitleId = if (savedInstanceState == null) arguments!!.getString(TITLE_ID_KEY)!! else savedInstanceState.getString(TITLE_ID_KEY)
+            .toString()
 
         mAdapter.mListener = object : TitleDetailsAdapter.ClickListener() {
             override fun onArticleClicked(article: Article) {
@@ -54,7 +53,6 @@ class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
                 navigation.showArticle(mTitleId, article.id)
             }
         }
-        mAnalytic = FirebaseAnalytics.getInstance(context!!)
         context2 = context!!
     }
 
@@ -63,7 +61,8 @@ class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
         val rootView = inflater.inflate(R.layout.fragment_titledetails, container, false)
         initMainRecycler(rootView)
         val sideRecycler = rootView.findViewById(R.id.section_list) as RecyclerView
-        sideRecycler.layoutManager = LinearLayoutManager(context)
+        sideRecycler.layoutManager =
+            LinearLayoutManager(context)
         sideRecycler.adapter = mSideAdapter
         return rootView
     }
@@ -71,7 +70,8 @@ class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
     private fun initMainRecycler(rootView: View?) {
         val recycler: RecyclerView = rootView?.findViewById(R.id.titledetails_list) as RecyclerView
         val colSpan = if (screenOrientation == Configuration.ORIENTATION_PORTRAIT) 3 else 4
-        val layoutManager: GridLayoutManager = GridLayoutManager(context, colSpan)
+        val layoutManager: GridLayoutManager =
+            GridLayoutManager(context, colSpan)
         layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
 
@@ -114,10 +114,6 @@ class TitleDetailsFragment : BaseFragment(), TitleDetailsContract.View {
         mSideAdapter.notifyDataSetChanged()
 
         val bundle = Bundle()
-        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, mTitleId)
-        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, titre.name)
-        bundle.putString(FirebaseAnalytics.Param.ITEM_CATEGORY, "titre")
-        mAnalytic.logEvent(FirebaseAnalytics.Event.VIEW_ITEM, bundle)
     }
 
     lateinit var mTitleId: String

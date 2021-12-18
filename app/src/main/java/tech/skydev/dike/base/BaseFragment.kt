@@ -1,7 +1,7 @@
 package tech.skydev.dike.base
 
 import android.content.res.Configuration
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 
 /**
  * Created by Hash Skyd on 3/28/2017.

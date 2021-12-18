@@ -3,14 +3,13 @@ package tech.skydev.dike.ui.title
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
-import android.support.v7.app.ActionBar
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.google.firebase.analytics.FirebaseAnalytics
 import tech.skydev.dike.R
 import tech.skydev.dike.base.BaseFragment
 import tech.skydev.dike.data.model.Titre
@@ -27,7 +26,6 @@ class TitleFragment : BaseFragment(), TitlesContract.View {
     override lateinit var context2: Context
 
     var mAdapter: TitleAdapter? = null
-    lateinit var mAnalytic: FirebaseAnalytics
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +42,6 @@ class TitleFragment : BaseFragment(), TitlesContract.View {
             }
 
         }
-        mAnalytic = FirebaseAnalytics.getInstance(context!!)
         context2 = context!!
     }
 
@@ -53,7 +50,8 @@ class TitleFragment : BaseFragment(), TitlesContract.View {
         val rootView = inflater.inflate(R.layout.fragment_titles, container, false)
         val recycler: RecyclerView = rootView?.findViewById(R.id.section_list) as RecyclerView
         val colSpan = if (screenOrientation == Configuration.ORIENTATION_PORTRAIT) 2 else 3
-        val layoutManager: GridLayoutManager = GridLayoutManager(context, colSpan)
+        val layoutManager: GridLayoutManager =
+            GridLayoutManager(context, colSpan)
         layoutManager.spanSizeLookup= object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
                 val size = if (position == 0) {
@@ -94,8 +92,6 @@ class TitleFragment : BaseFragment(), TitlesContract.View {
 
     override fun showTitles(titres: ArrayList<Titre>) {
         val bundle = Bundle()
-        bundle.putString(FirebaseAnalytics.Param.ITEM_CATEGORY, "titres")
-        mAnalytic.logEvent(FirebaseAnalytics.Event.VIEW_ITEM_LIST, bundle)
         mAdapter?.replaceItems(titres)
     }
 

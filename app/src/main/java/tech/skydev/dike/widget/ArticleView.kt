@@ -2,8 +2,8 @@ package tech.skydev.dike.widget
 
 import android.content.Context
 import android.os.Build
-import android.support.annotation.RequiresApi
-import android.support.v4.view.GestureDetectorCompat
+import androidx.annotation.RequiresApi
+import androidx.core.view.GestureDetectorCompat
 import android.text.Html
 import android.util.AttributeSet
 import android.view.GestureDetector

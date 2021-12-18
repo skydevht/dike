@@ -1,6 +1,5 @@
 package tech.skydev.dike.ui.titledetails
 
-import com.google.firebase.analytics.FirebaseAnalytics
 import tech.skydev.dike.data.ConstitutionRepository
 import tech.skydev.dike.data.DataCallback
 import tech.skydev.dike.data.model.Titre

@@ -1,13 +1,11 @@
 package tech.skydev.dike.ui
 
 import android.os.Bundle
-import android.support.v7.app.ActionBar
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
 import tech.skydev.dike.Injection
 import tech.skydev.dike.R
 import tech.skydev.dike.ui.article.ArticleFragment
@@ -27,7 +25,6 @@ class MainActivity : AppCompatActivity(), Navigation {
     private val FRAG_TAG_KEY: String = "frag-tag"
     val aboutDialog = AboutDialog()
 
-    lateinit var mAdView: AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,9 +32,6 @@ class MainActivity : AppCompatActivity(), Navigation {
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
 
-        mAdView = findViewById(R.id.adView) as AdView
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
 
         val bar: ActionBar = supportActionBar!!
         bar.title = "Constitution Haitienne"
@@ -129,7 +123,7 @@ class MainActivity : AppCompatActivity(), Navigation {
 
     }
 
-    override fun onSaveInstanceState(outState: Bundle?) {
+    override fun onSaveInstanceState(outState: Bundle) {
         outState?.putString(FRAG_TAG_KEY, currentFragmentTag)
         super.onSaveInstanceState(outState)
     }
